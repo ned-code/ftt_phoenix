@@ -1,9 +1,10 @@
-var React = require('react');
+import React from 'react';
+import ReactDom from 'react-dom';
 
-var HelloMessage = React.createClass({
-  render: function() {
+export default class HelloMessage extends React.Component {
+  render() {
     return <div>Hello {this.props.name}</div>;
   }
-});
+}
 
-module.exports = HelloMessage;
+
