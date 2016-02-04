@@ -1,24 +1,17 @@
 'use strict';
-let path = require('path');
-let express = require('express');
-let reactViews = require('express-react-views');
+import path from 'path';
+import express from 'express';
 
-let app = express();
-let port = process.env.PORT || 3000;
 
-// views
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jsx');
+const app = express();
+const port = process.env.PORT || 3000;
 
-app.engine('jsx', reactViews.createEngine({}));
+//import Router from './src/Router';
 
-// static
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.resolve(path.resolve(__dirname, '..'), '/public')));
 
-app.get('/', function (req, res) {
-  res.render('html');
-});
+//app.use(Router);
 
 app.listen(port, function () {
-  console.log('Dynamic react example listening on port ' + port);
+  console.log(' listening on port ' + port);
 });
