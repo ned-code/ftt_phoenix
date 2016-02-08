@@ -23,7 +23,7 @@
     "gulp-nodemon": "^2.0.6",
     "gulp-webpack": "^1.5.0",
     "jshint": "^2.9.1",
-    "webpack": "^2.0.5-beta"
+    "webpack": "latest"
   },
   "dependencies": {
     "express": "^4.13.4",

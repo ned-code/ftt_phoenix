@@ -1,5 +1,4 @@
 'use strict';
-
-let config = require('../webpack.base.config.js');
-
+let path = require('path');
+let config = require(path.join(path.resolve(__dirname, '..'), 'webpack.base.config.js'));
 module.exports = config;
