@@ -1,8 +1,1 @@
-.idea
 node_modules
-public/components
-uploads
-secret.json
-database.json
-*.log
-*.zip
