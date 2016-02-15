@@ -6,18 +6,17 @@
     "react",
     "webpack"
   ],
-  "main": "",
+  "main": "dist/server/server.js",
   "scripts": {
-    "start": "node node_modules/forever/bin/forever --minUptime 1000 --spinSleepTime 1000 -c \"node --harmony\" ./dist/server.js",
-    "build-server": "node node_modules/webpack/bin/webpack --colors --display-error-details --config configs/webpack.server.js",
-    "build-client": "node node_modules/webpack/bin/webpack --colors --display-error-details --config configs/webpack.client.js",
+    "start": "node node_modules/pm2/bin/pm2 start ./dist/server/server.js --name=app_production",
+    "build-server": "node node_modules/webpack/bin/webpack --config configs/webpack.server.js",
+    "build-client": "node node_modules/webpack/bin/webpack --config configs/webpack.client.js",
     "build": "node node_modules/concurrently/src/main \"npm run build-server\" \"npm run build-client\"",
-    "watch-server": "node node_modules/webpack/bin/webpack --watch --verbose --colors --display-error-details --config configs/webpack.server-watch.js",
-    "watch-server-start": "node node_modules/just-wait --pattern \"dist/*.js\" && npm run start",
+    "watch-server": "node node_modules/webpack/bin/webpack --watch --verbose --config configs/webpack.server-watch.js",
+    "watch-server-start": "node node_modules/just-wait --pattern \"dist/server/*.js\" && npm run start",
     "watch-client": "node node_modules/webpack-dev-server/bin/webpack-dev-server --config configs/webpack.client-watch.js",
     "watch": "node node_modules/concurrently/src/main --kill-others \"npm run watch-server-start\" \"npm run watch-server\" \"npm run watch-client\""
   },
-  "scripts": {},
   "author": "fernando.oliveira",
   "license": "ISC",
   "devDependencies": {
@@ -26,7 +25,14 @@
     "babel-loader": "^6.2.2",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
-    "webpack": "^1.12.13"
+    "babel-preset-react-hmre": "^1.1.0",
+    "clean-webpack-plugin": "^0.1.8",
+    "concurrently": "^1.0.0",
+    "express": "^4.13.4",
+    "just-wait": "^1.0.3",
+    "pm2": "^1.0.1",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "express": "^4.13.4",
@@ -35,5 +41,8 @@
     "react-redux": "^4.4.0",
     "react-router": "^2.0.0",
     "redux": "^3.3.1"
+  },
+  "engines": {
+    "node": ">=0.10.32"
   }
 }
