@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/fernandooliveira/ftt_phoenix#readme",
   "dependencies": {
+    "koa": "^2.0.0",
+    "neo4j-driver": "^1.0.1",
     "react": "^15.1.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
