@@ -1,3 +1,5 @@
+'use strick';
+var path = require('path');
 var plugins = [];
 
 if (process.env.NODE_ENV === 'production') {
@@ -5,10 +7,13 @@ if (process.env.NODE_ENV === 'production') {
 };
 
 module.exports = {
-  entry: './index.js',
+  entry: {
+    app: ["./app/client.js"]
+  },
   output: {
-    path: './build',
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, "build"),
+    //publicPath: "/assets/",
+    filename: "bundle.js"
   },
   module: {
             loaders: [

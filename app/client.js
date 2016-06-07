@@ -1,16 +1,7 @@
-import React from 'react';
+'use strick';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import Routes from './routes';
 
-import { App, LoginForm } from './containers'
+const dest = document.getElementById('content');
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './assets/styles.css';
-
-ReactDOM.render((
-      <Router history={browserHistory}>
-        <Route path="/" component={App}/>
-        <Route path="/login" component={LoginForm}/>
-      </Router>
-      ), document.getElementById('container'));
-
+ReactDOM.render(Routes, dest);
