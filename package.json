@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./bin/api.js",
+    "start-api": "node ./bin/api.js",
+    "start-app": "node ./bin/app.js",
     "build": "NODE_ENV=production webpack",
     "dev": "webpack-dev-server --content-base ./build/"
   },
@@ -27,7 +28,9 @@
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
-    "redux": "^3.5.2"
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2",
+    "redux-async-connect": "^1.0.0-rc4"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",

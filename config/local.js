@@ -1,4 +1,7 @@
 'use strick';
 export default {
-  "app": "familytreetop"
+  "app":{
+    "name": "familytreetop",
+    "port": 3000
+   }
 };
