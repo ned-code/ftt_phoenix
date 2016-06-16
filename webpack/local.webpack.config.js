@@ -3,16 +3,19 @@ var path = require('path');
 var plugins = [];
 
 if (process.env.NODE_ENV === 'production') {
-  plugins.push( new webpack.optimize.UglifyJsPlugin());
+  plugins.push(new webpack.HotModuleReplacementPlugin());
+  plugins.push(new webpack.optimize.UglifyJsPlugin());
+  plugins.push(new webpack.optimize.UglifyJsPlugin());
 };
+
+var buildPath = path.resolve(path.resolve(__dirname, ".."), "build");
 
 module.exports = {
   entry: {
-    app: ["./app/client.js"]
+    app: ['webpack-hot-middleware/client', './app/client.js'], 
   },
   output: {
-    path: path.resolve(__dirname, "build"),
-    //publicPath: "/assets/",
+    path: buildPath,
     filename: "bundle.js"
   },
   module: {

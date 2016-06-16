@@ -9,10 +9,10 @@ import { Reducers }  from './redux'
 
 
 // Grab the state from a global injected into server-generated HTML
-const initialState = window.__INITIAL_STATE__
+const initialState = window.__INITIAL_STATE__;
 
 // Create Redux store with initial state
-const store = createStore(Reducers.App, initialState)
+const store = createStore(Reducers.App, initialState);
 
 render(
   <Provider store={store}>
