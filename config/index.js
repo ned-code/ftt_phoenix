@@ -10,7 +10,7 @@ class Config {
 
     this.get = (name, c) => { 
       if(name.length == 0) return false;
-      if(!c) c = config.get("default");
+      if(!c) c = config;
       let p = ("string" === typeof(name)) ? name.split('.') : name;
       return (p.length > 1) ? this.get(p.slice(1), c.get(p[0])) : c.get(p[0]);
     };

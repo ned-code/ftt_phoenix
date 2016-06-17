@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import { renderToString } from 'react-dom/server';
 import serialize from 'serialize-javascript';
-//import Helmet from 'react-helmet';
 
 export default class Html extends Component {
   static propTypes = {
@@ -28,3 +27,4 @@ export default class Html extends Component {
     );
   }
 }
+

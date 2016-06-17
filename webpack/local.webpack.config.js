@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'production') {
   plugins.push(new webpack.optimize.UglifyJsPlugin());
 };
 
-var buildPath = path.resolve(path.resolve(__dirname, ".."), "build");
+var buildPath = path.resolve(path.resolve(__dirname, ".."), "static/dist");
 
 module.exports = {
   entry: {

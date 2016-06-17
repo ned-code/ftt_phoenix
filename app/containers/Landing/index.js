@@ -6,9 +6,7 @@ class Landing extends Component {
   }
   render() {
     const { } = this.props
-    return (
-      <p> Landing </p>
-    )
+    return ( <div>Landing</div> )
   }
 }
 
