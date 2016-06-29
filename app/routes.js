@@ -1,28 +1,15 @@
 import React from 'react';
-import {IndexRoute, Route} from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 
-import { renderToString } from 'react-dom/server'
+import Root from './components/Root';
 
-import {
-  App,
-  Landing,
-  Profile,
-  BulletinBoard,
-  FamilyTree,
-  NotFound
-  } from './containers';
+import Landing from './components/Pages/Landing';
+import NotFound from './components/Pages/NotFound';
 
-export default (store) => {
-  return (
-    <Route path="/" component={ App } >
-      <IndexRoute component={ Landing } />
-      { /* Routes */ }
-      <Route path="profile" component={ Profile } />
-      <Route path="bulletinboard" component={ BulletinBoard } />
-      <Route path="familytree" component={ FamilyTree } />
-      { /* Catch all route */ }
-      <Route path="*" component={ NotFound } status={404} />
-    </Route>
-  );
-};
-
+export default (
+  <Route path="/" component={Root}>
+    <IndexRoute component={Landing} />
+    <Route path="/landing" component={Landing} />
+    <Route path="*" component={NotFound} status={404} />
+  </Route>
+);
