@@ -1,3 +1,6 @@
+import fs from 'fs';
+import path from 'path';
+
 export const renderFullPage = (html, devPort, domain, initialState = null, head) => {
 
   // Add bundle.css for server side rendering and start:prod

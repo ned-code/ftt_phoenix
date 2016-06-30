@@ -2,32 +2,46 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
+import { ReduxAsyncConnect } from 'redux-async-connect';
 import configureStore from './redux/store/configureStore';
 import routes from './routes';
 
-if (__CLIENT__ && __DEVELOPMENT__) {
-  // https://facebook.github.io/react/docs/advanced-performance.html
+if (__DEVELOPMENT__) {
   window.Perf = require('react-addons-perf');
 }
 
-let initialState;
-try {
-  initialState = window.__INITIAL_STATE__; // for erver-side-rendering
-} catch (err) {
-  initialState = {};
-}
+let initialState = {};
 
 export const history = browserHistory;
-
 export const store = configureStore(initialState);
 
-if (__CLIENT__) {
+
+const dest = document.getElementById('root');
+const component = (
+  <Router render={(props) =>
+        <ReduxAsyncConnect {...props} filter={item => !item.deferred} />
+      } history={history}>
+    {routes}
+  </Router>
+);
+
+ReactDOM.render(
+  <Provider store={store} key="provider">
+    {component}
+  </Provider>,
+  dest
+);
+
+if (__DEVTOOLS__ && !window.devToolsExtension) {
+  const DevTools = require('./components/DevTools/DevTools').default;
   ReactDOM.render(
-    <Provider store={store}>
-      <Router history={history}>
-        {routes}
-      </Router>
+    <Provider store={store} key="provider">
+      <div>
+        {component}
+        <DevTools />
+      </div>
     </Provider>,
-    document.getElementById('root')
+    dest 
   );
 }
+

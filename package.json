@@ -1,10 +1,10 @@
 {
-  "name": "mpc-film-shotbook",
+  "name": "familytreetop",
   "engines": {
     "node": ">=5.0"
   },
-  "version": "3.0.1",
-  "description": "mpc-film-shotbook",
+  "version": "0.0.1",
+  "description": "build your family tree",
   "scripts": {
     "start": "rimraf dist && NODE_ENV=development node bin/server.js",
     "start:prod": "NODE_ENV=production node bin/server.js",
@@ -18,10 +18,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/xbsltd/mpc-film-shotbook.git"
+    "url": "git@github.com:fernandooliveira/ftt_phoenix.git"
   },
-  "homepage": "https://bitbucket.org/xbsltd/mpc-film-shotbook",
-  "bugs": "https://bitbucket.org/xbsltd/mpc-film-shotbook/issues",
+  "homepage": "https://github.com/fernandooliveira/ftt_phoenix",
+  "bugs": "https://github.com/fernandooliveira/ftt_phoenix/issues",
   "keywords": [
     "react",
     "reactjs",
@@ -36,8 +36,12 @@
     "webpack"
   ],
   "license": "MIT",
-  "authors": [ ],
-  "contributors": [ ],
+  "authors": [
+    "alexander.potashko"
+  ],
+  "contributors": [
+    "fernando.oliveira"
+  ],
   "devDependencies": {
     "autoprefixer": "6.3.6",
     "babel-core": "6.7.7",
@@ -84,7 +88,6 @@
     "mocha": "2.4.5",
     "morgan": "1.7.0",
     "node-sass": "^3.8.0",
-    "sass": "^0.5.0",
     "path-chunk-webpack-plugin": "1.2.0",
     "postcss-loader": "0.8.2",
     "ramda": "^0.20.1",
@@ -95,8 +98,12 @@
     "react-helmet": "3.1.0",
     "react-transform-hmr": "1.0.4",
     "redux": "3.5.2",
+    "redux-devtools": "^3.3.1",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.0.11",
     "redux-logger": "2.6.1",
     "redux-thunk": "2.0.1",
+    "sass": "^0.5.0",
     "sass-loader": "3.2.0",
     "sinon": "1.17.3",
     "sinon-chai": "2.8.0",
@@ -119,6 +126,7 @@
     "react": "15.1.0",
     "react-redux": "4.4.5",
     "react-router": "2.4.1",
+    "redux-async-connect": "^1.0.0-rc4",
     "redux-batched-subscribe": "0.1.4"
   }
 }

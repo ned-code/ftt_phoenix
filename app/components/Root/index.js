@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { asyncConnect } from 'redux-async-connect'
 import Helmet from 'react-helmet';
 
 import * as actionCreators from 'redux/modules';
@@ -11,9 +12,17 @@ import Header from 'components/Modules/Header';
 /* global styles for app */
 require('./styles/app.scss');
 
+@asyncConnect([{
+  promise: ({store:{dispatch, getState}}) => {
+    const promises = [];
+    promises.push(dispatch(actionCreators.staticData.loadStaticData())); 
+    return Promise.all(promises);
+  } 
+}])
 @connect(
-  ({ app }) => ({
-    spinnerAsyncPage: app.get('spinnerAsyncPage'),
+  state =>({
+     spinnerAsyncPage: state.app.spinnerAsyncPage,
+     staticData: state.staticData
   }),
   dispatch => bindActionCreators({
     ...actionCreators.app,
@@ -48,8 +57,6 @@ export default class Root extends Component {
 
   render() {
     const { spinnerAsyncPage } = this.props;
-
-    console.log();
 
 // React.cloneElement(this.props.children, this.props)
     return (

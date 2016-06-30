@@ -91,7 +91,7 @@ const common = {
       },
       __DEVELOPMENT__: process.env.NODE_ENV === 'development',
       __PRODUCTION__: process.env.NODE_ENV === 'production',
-      __CLIENT__: true,
+      __DEVTOOLS__: process.env.NODE_ENV === 'development'
     }),
 
     // chunks for generate vendor bundle
