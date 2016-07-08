@@ -71,13 +71,13 @@ const common = {
       loader: 'babel-loader',
     }, {
       test: /\.png$/,
-      loader: 'file?name=[hash].[name].[ext]',
+      loader: 'file?name=assets/[hash].[name].[ext]',
     }, {
       test: /\.jpg$/,
-      loader: 'file?name=[hash].[name].[ext]',
+      loader: 'file?name=assets/[hash].[name].[ext]',
     }, {
       test: /\.gif$/,
-      loader: 'file?name=[hash].[name].[ext]',
+      loader: 'file?name=assets/[hash].[name].[ext]',
     }, {
       test: /packery/,
       loader: 'imports?define=>false&this=>window',
@@ -124,8 +124,8 @@ const common = {
 };
 
 
+common.plugins.splice(0,0, new CleanWebpackPlugin(['dist'], { root: process.cwd() }));
 if (process.env.NODE_ENV === 'development') {
-  common.plugins.splice(0,0, new CleanWebpackPlugin(['dist'], { root: process.cwd() }));
   module.exports = merge(development, common);
 };
 
