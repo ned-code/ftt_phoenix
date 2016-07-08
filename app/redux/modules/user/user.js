@@ -1,32 +1,22 @@
 import { createReducer } from '../../utils/createReducer';
-import Immutable from 'immutable';
+
+const LOAD = "user/LOAD_USER";
+const LOAD_SUCCESS = "user/LOAD_USER_SUCCESS";
+const LOAD_FAIL = "user/LOAD_USER_FAIL";
 
 const initialState = {
-  auth: false,
-  data: []
+  statuses: {}
 };
 
-// For async components
 export default createReducer({
-  ['GET_USER_REQUEST']: (state, { payload }) => state.set('data', []),
-
-  ['GET_USER_SUCCESS']: (state, { payload }) => { 
-    return state 
-      .set('data', Immutable.fromJS(payload.data))
-      .set('auth', true); 
-  },
-
-  ['GET_USER_FAILURE']: (state, { payload }) => console.log('error'),
+  [LOAD]: state => state.set('data', {}),
+  [LOAD_FAIL]: state => state.set('data', {}), 
+  [LOAD_SUCCESS]: (state, action) => state.set('data', action.result),
 }, initialState);
 
-export const apiGetUser = () => ({
-  mode: 'GET', // GET, POST
-  type: 'GET_USER', // see: createReducer in this file
-  url: 'user', // => api/user (see in /api/routes/user.js)
-  data: {
-    id: 1,
-  },
-  onSuccess: (res, dispatch) => { },
-  onFailure: (res, dispatch) => { },
-  callback: (res, dispatch) => { },
-});
+export const getStatuses = () => {
+  return {
+    types: [LOAD, LOAD_SUCCESS, LOAD_FAIL],
+    promise: (client) =>client.get('/api/user') 
+  }
+};

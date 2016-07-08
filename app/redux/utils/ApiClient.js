@@ -1,9 +1,12 @@
 import superagent from 'superagent';
+
 const methods = ['get', 'post', 'put', 'patch', 'del'];
+
+import { API_URL } from '../../constants';
 
 function formatUrl(path) {
   const adjustedPath = path[0] !== '/' ? '/' + path : path;
-  return '/api' + adjustedPath;
+  return API_URL + adjustedPath;
 }
 
 class _ApiClient {
@@ -11,7 +14,7 @@ class _ApiClient {
     methods.forEach((method) =>
       this[method] = (path, { params, data } = {}) => new Promise((resolve, reject) => {
 
-        const request = superagent[method](formatUrl(path));
+        const request = superagent[method](formatUrl(path))
 
         if (params) {
           request.query(params);
@@ -21,7 +24,9 @@ class _ApiClient {
           request.send(data);
         }
 
-        request.end((err, { body } = {}) => err ? reject(body || err) : resolve(body));
+        request.end((err, { body } = {}, ...rest) => {
+          return err ? reject(body || err) : resolve(body) 
+        });
       }));
   }
 }

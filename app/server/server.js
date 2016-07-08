@@ -28,15 +28,21 @@ proxy.on('error', (err, req) => {
   console.error(err, req.url);
 });
 
+proxy.on('proxyRes', (proxyRes, req, res)=>{
+  proxyRes.headers['content-type'] = 'application/json';
+});
+
 // Activate proxy for session
-app.use(/\/api\/(.*)/, (req, res) => {
+app.use(/\/json\/(.*)/, (req, res) => {
   req.url = req.originalUrl;
   proxy.web(req, res, { target: 'http://localhost:3030' });
 });
 
 // Static directory for express
-app.use('/static', Express.static(__dirname + '/../../static/'));
 app.use('/dist', Express.static(__dirname + '/../../dist/'));
+app.use('/dhtmlx', Express.static(__dirname + '/../../dhtmlx/'));
+app.use('/templates', Express.static(__dirname + '/../../templates/'));
+app.use('/static', Express.static(__dirname + '/../../static/'));
 
 app.get(/.*/, (req, res) => {
   const domain = req.get('host').replace(/\:.*/, '');

@@ -1,9 +1,13 @@
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const merge = require('webpack-merge');
+
 const development = require('./dev.config.js');
 const production = require('./prod.config.js');
+
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 const path = require('path');
 
 const TARGET = process.env.npm_lifecycle_event;
@@ -30,7 +34,7 @@ const common = {
 
   resolve: {
     extensions: ['', '.jsx', '.js', '.json', '.scss'],
-    modulesDirectories: ['node_modules'],
+    modulesDirectories: ['node_modules', 'dhtmlx'],
     // alias for beautiful import
     alias: {
       components: path.join(__dirname, '../app/components/'),
@@ -63,21 +67,26 @@ const common = {
       loader: 'url?limit=10000&mimetype=image/svg+xml',
     }, {
       test: /\.js$/,
-      exclude: /node_modules/,
+      exclude: /node_modules|dhtmlx/,
       loader: 'babel-loader',
     }, {
       test: /\.png$/,
-      loader: 'file?name=[name].[ext]',
+      loader: 'file?name=[hash].[name].[ext]',
     }, {
       test: /\.jpg$/,
-      loader: 'file?name=[name].[ext]',
+      loader: 'file?name=[hash].[name].[ext]',
     }, {
       test: /\.gif$/,
-      loader: 'file?name=[name].[ext]',
+      loader: 'file?name=[hash].[name].[ext]',
     }, {
       test: /packery/,
       loader: 'imports?define=>false&this=>window',
     }],
+  },
+
+  externals: {
+    "dhtmlx": "dhtmlx",
+    "scheduler": "scheduler"
   },
 
   plugins: [
@@ -100,11 +109,11 @@ const common = {
       minChunks: (module) => {
         return module.resource &&
           module.resource.indexOf('node_modules') !== -1 &&
+          module.resource.indexOf('dhtmlx') !== -1 &&
           module.resource.indexOf('.css') === -1;
       },
-    }),
+    })
   ],
-
   postcss: (wp) => {
     return [
       autoprefixer({
@@ -114,7 +123,9 @@ const common = {
   },
 };
 
+
 if (process.env.NODE_ENV === 'development') {
+  common.plugins.splice(0,0, new CleanWebpackPlugin(['dist'], { root: process.cwd() }));
   module.exports = merge(development, common);
 };
 

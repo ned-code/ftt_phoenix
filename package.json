@@ -1,27 +1,66 @@
 {
-  "name": "familytreetop",
+  "name": "mpc-film-shotbook",
   "engines": {
     "node": ">=5.0"
   },
-  "version": "0.0.1",
-  "description": "build your family tree",
+  "version": "3.0.1",
+  "description": "mpc-film-shotbook",
   "scripts": {
-    "start": "rimraf dist && NODE_ENV=development node bin/server.js",
-    "start:prod": "NODE_ENV=production node bin/server.js",
-    "api": "NODE_ENV=development nodemon --watch api bin/api.js",
-    "api:prod": "NODE_ENV=production node bin/api.js",
-    "api-debug": "NODE_ENV=development concurrently --kill-others \"nodemon --debug --watch api bin/api.js\"  \"node-inspector -p 3020\"",
-    "build": "rimraf dist && NODE_ENV=production webpack --progress --verbose --display-error-details --config webpack/common.config.js",
-    "build:analyze": "NODE_ENV=production webpack --json --config webpack/common.config.js | webpack-bundle-size-analyzer > logs/build-analyze.log",
-    "test": "NODE_PATH=./app mocha --require ./bin/test.js 'app/**/*spec.js'",
-    "test:watch": "npm run test -- --watch"
+    "dev": "concurrently --kill-others \"npm run start-api\" \"npm run start-dev\"",
+    "prod": "concurrently --kill-others \"npm run build && npm run start-api\" \"npm run start-prod\"",
+    "start-dev": "better-npm-run dev",
+    "start-prod": "better-npm-run prod",
+    "start-api": "better-npm-run api",
+    "build": "better-npm-run build",
+    "test": "better-npm-run test",
+    "test-watch": "better-npm-run test-watch"
+  },
+  "betterScripts": {
+    "dev": {
+      "command": "node bin/server.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "prod": {
+      "command": "node bin/server.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "api": {
+      "command": "nodemon --watch api bin/api.js",
+      "evn": {
+        "NODE_ENV": "development"
+      }
+    },
+    "build": {
+      "command": "webpack --progress --verbose --display-error-details --config webpack/common.config.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "test": {
+      "command": "mocha --require ./bin/test.js 'app/**/*spec.js'",
+      "env": {
+        "NODE_PATH": "./app",
+        "NODE_ENV": "production"
+      }
+    },
+    "test-watch": {
+      "command": "mocha --require ./bin/test.js 'app/**/*spec.js' --watch",
+      "env": {
+        "NODE_PATH": "./app",
+        "NODE_ENV": "production"
+      }
+    }
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:fernandooliveira/ftt_phoenix.git"
+    "url": "https://bitbucket.org/xbsltd/mpc-film-shotbook.git"
   },
-  "homepage": "https://github.com/fernandooliveira/ftt_phoenix",
-  "bugs": "https://github.com/fernandooliveira/ftt_phoenix/issues",
+  "homepage": "https://bitbucket.org/xbsltd/mpc-film-shotbook",
+  "bugs": "https://bitbucket.org/xbsltd/mpc-film-shotbook/issues",
   "keywords": [
     "react",
     "reactjs",
@@ -36,20 +75,18 @@
     "webpack"
   ],
   "license": "MIT",
-  "authors": [
-    "alexander.potashko"
-  ],
-  "contributors": [
-    "fernando.oliveira"
-  ],
+  "authors": [],
+  "contributors": [],
   "devDependencies": {
     "autoprefixer": "6.3.6",
     "babel-core": "6.7.7",
     "babel-eslint": "6.0.4",
     "babel-loader": "6.2.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-react-remove-prop-types": "2.0.2",
     "babel-plugin-react-transform": "2.0.2",
     "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-plugin-transform-require-ignore": "0.0.2",
     "babel-plugin-webpack-alias": "1.1.1",
     "babel-polyfill": "6.7.4",
@@ -57,13 +94,16 @@
     "babel-preset-react": "6.5.0",
     "babel-preset-stage-0": "6.5.0",
     "babel-register": "6.7.2",
+    "better-npm-run": "0.0.9",
     "bluebird": "3.3.5",
     "body-parser": "1.15.0",
     "chai": "3.5.0",
     "chai-as-promised": "5.3.0",
     "chai-enzyme": "0.4.2",
     "classnames": "2.2.4",
+    "clean-webpack-plugin": "^0.1.9",
     "compression": "1.6.1",
+    "concurrently": "^2.2.0",
     "cookie-parser": "1.4.1",
     "cors": "2.7.1",
     "css-loader": "0.23.1",

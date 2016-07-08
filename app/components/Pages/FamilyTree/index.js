@@ -4,14 +4,14 @@ import Helmet from 'react-helmet';
 /* component styles */
 require('./styles.scss');
 
-export default class Landing extends Component {
+export default class FamilyTree extends Component {
   render() {
     return (
-      <section className="Landing">
+      <section className="FamilyTree">
         <Helmet
-          title="Landing"
+          title="FamilyTree"
         />
-        <h1>Landing</h1>
+        <h1>FamilyTree</h1>
       </section>
     );
   }

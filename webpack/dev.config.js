@@ -1,8 +1,8 @@
 const webpack = require('webpack');
 
 module.exports = {
-  // devtool: 'source-map',
-  devtool: 'eval-cheap-module-source-map',
+  devtool: 'source-map',
+  //devtool: 'eval-cheap-module-source-map',
 
   entry: {
     main: ['webpack-hot-middleware/client', './app/index'],
@@ -21,6 +21,6 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-  ],
+    new webpack.NoErrorsPlugin()
+  ]
 };

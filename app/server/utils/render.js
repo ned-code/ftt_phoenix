@@ -21,7 +21,7 @@ export const renderFullPage = (html, devPort, domain, initialState = null, head)
         ${head ? head.meta.toString() : ''}
 
         ${bundleCSS}
-        <link rel="shortcut icon" href="/static/images/favicon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="images/images/favicon.png" type="image/x-icon">
         ${head ? head.title.toString() : ''}
       </head>
       <body>

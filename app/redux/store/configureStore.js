@@ -7,7 +7,6 @@ import rootReducer from '../';
 import clientMiddleware from '../middleware/clientMiddleware';
 import ApiClient from '../utils/ApiClient';
 
-
 const __PRODUCTION__ = __PRODUCTION__ || process.env.NODE_ENV === 'production'; // eslint-disable-line
 
 const logger = createLogger({
@@ -25,7 +24,7 @@ const middlewares = [
 let finalCreateStore;
 if (__DEVELOPMENT__ && __DEVTOOLS__) {
   const { persistState } = require('redux-devtools');
-  const DevTools = require('../../components/DevTools/DevTools').default;
+  const DevTools = require('../../components/DevTools/DevTools');
   finalCreateStore = compose(
     applyMiddleware(...middlewares),
     window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument(),

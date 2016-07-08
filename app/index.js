@@ -15,7 +15,6 @@ let initialState = {};
 export const history = browserHistory;
 export const store = configureStore(initialState);
 
-
 const dest = document.getElementById('root');
 const component = (
   <Router render={(props) =>
@@ -25,15 +24,8 @@ const component = (
   </Router>
 );
 
-ReactDOM.render(
-  <Provider store={store} key="provider">
-    {component}
-  </Provider>,
-  dest
-);
-
-if (__DEVTOOLS__ && !window.devToolsExtension) {
-  const DevTools = require('./components/DevTools/DevTools').default;
+if(__DEVELOPMENT__ && __DEVTOOLS__ && !window.devToolsExtension){
+  const DevTools = require('./components/DevTools/DevTools');
   ReactDOM.render(
     <Provider store={store} key="provider">
       <div>
@@ -43,5 +35,11 @@ if (__DEVTOOLS__ && !window.devToolsExtension) {
     </Provider>,
     dest 
   );
-}
-
+} else {
+  ReactDOM.render(
+    <Provider store={store} key="provider">
+      {component}
+    </Provider>,
+    dest
+  );
+};
