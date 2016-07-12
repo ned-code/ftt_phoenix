@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 
-/* component styles */
-require('./styles.scss');
+import {
+  Header,
+  SideMenu,
+  Cards
+} from 'components/Containers';
 
 export default class Dashboard extends Component {
   render() {
     return (
-      <section className="Dashboard">
+      <section className="row content-container">
         <Helmet
           title="Dashboard"
         />
-        <h1>Dashboard</h1>
+        <Header />
+        <SideMenu />
+        <div className="container-fluid">
+          <div className="side-body padding-top">
+            <Cards />
+          </div>
+        </div>
       </section>
     );
   }

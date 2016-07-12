@@ -7,6 +7,7 @@ const production = require('./prod.config.js');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
 
@@ -17,7 +18,7 @@ var devUrl;
 
 // location dist for dev and prod
 if (process.env.NODE_ENV === 'development') {
-  devUrl = 'http://localhost:3000/dist/';
+  devUrl = 'http://localhost:5000/dist/';
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -34,9 +35,10 @@ const common = {
 
   resolve: {
     extensions: ['', '.jsx', '.js', '.json', '.scss'],
-    modulesDirectories: ['node_modules', 'dhtmlx'],
+    modulesDirectories: ['node_modules'],
     // alias for beautiful import
     alias: {
+      static: path.join(__dirname, '../app/static/'),
       components: path.join(__dirname, '../app/components/'),
       'redux/modules': path.join(__dirname, '../app/redux/modules/'),
       constants: path.join(__dirname, '../app/constants/'),
@@ -49,50 +51,52 @@ const common = {
   module: {
     loaders: [{
       test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url?limit=10000&mimetype=application/font-woff',
+      loader: 'url?limit=100000&mimetype=application/font-woff',
     }, {
       test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url?limit=10000&mimetype=application/font-woff2',
+      loader: 'url?limit=100000&mimetype=application/font-woff2',
     }, {
       test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url?limit=10000&mimetype=application/octet-stream',
+      loader: 'url?limit=100000&mimetype=application/octet-stream',
     }, {
       test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url?limit=10000&mimetype=application/font-otf',
+      loader: 'url?limit=100000&mimetype=application/font-otf',
     }, {
       test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'file',
     }, {
       test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url?limit=10000&mimetype=image/svg+xml',
+      loader: 'url?limit=100000&mimetype=image/svg+xml',
     }, {
       test: /\.js$/,
-      exclude: /node_modules|dhtmlx/,
+      exclude: /node_modules/,
       loader: 'babel-loader',
     }, {
-      test: /\.png$/,
-      loader: 'file?name=assets/[hash].[name].[ext]',
-    }, {
       test: /\.jpg$/,
-      loader: 'file?name=assets/[hash].[name].[ext]',
+      loader: 'file?name=[hash].[name].[ext]',
+    }, {
+      test: /\.png$/,
+      loader: 'file?name=[hash].[name].[ext]',
     }, {
       test: /\.gif$/,
-      loader: 'file?name=assets/[hash].[name].[ext]',
+      loader: 'file?name=[hash].[name].[ext]',
     }, {
       test: /packery/,
       loader: 'imports?define=>false&this=>window',
     }],
   },
 
-  externals: {
-    "dhtmlx": "dhtmlx",
-    "scheduler": "scheduler"
-  },
-
+  externals: { },
   plugins: [
+    // copy assets
+    new CopyWebpackPlugin([
+      { 
+        from: '../app/assets/**/*', 
+        to: '/dist' 
+      },
+    ]),
     // generate bundle.css for server-side-rendering
     new ExtractTextPlugin('bundle.css'),
-
     // define global constants
     new webpack.DefinePlugin({
       'process.env': {
@@ -107,10 +111,7 @@ const common = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: (module) => {
-        return module.resource &&
-          module.resource.indexOf('node_modules') !== -1 &&
-          module.resource.indexOf('dhtmlx') !== -1 &&
-          module.resource.indexOf('.css') === -1;
+        return module.resource && module.resource.indexOf('node_modules') !== -1
       },
     })
   ],

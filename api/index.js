@@ -26,7 +26,7 @@ app.use(cors());
 app.use(helmet());
 app.use(routes);
 
-server.listen(3030, () => {
+server.listen(5500, () => {
   const host = server.address().address;
   const port = server.address().port;
 

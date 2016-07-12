@@ -1,5 +1,9 @@
-import Test from './test';
+import Header from './Header';
+import SideMenu from './SideMenu';
+import Cards from './Cards';
 
 export { 
-  Test
+  Header,
+  SideMenu,
+  Cards
 };
