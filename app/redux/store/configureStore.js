@@ -12,13 +12,13 @@ const __PRODUCTION__ = __PRODUCTION__ || process.env.NODE_ENV === 'production'; 
 const logger = createLogger({
   collapsed: true,
   predicate: () =>
-    process.env.NODE_ENV === 'development',
+    process.env.NODE_ENV === 'development'
 });
 
 const client = new ApiClient();
 const middlewares = [
   clientMiddleware(client),
-  !__PRODUCTION__ && logger,
+  !__PRODUCTION__ && logger
 ].filter(Boolean);
 
 let finalCreateStore;
@@ -34,7 +34,7 @@ if (__DEVELOPMENT__ && __DEVTOOLS__) {
   finalCreateStore = applyMiddleware(...middlewares)(createStore);
 }
 
-export default function configureStore(initialState) {
+export default function configureStore (initialState) {
   const store = finalCreateStore(rootReducer, initialState, batchedSubscribe(batchedUpdates));
 
   if (module.hot) {

@@ -24,10 +24,10 @@ const component = (
   </Router>
 );
 
-if(__DEVELOPMENT__ && __DEVTOOLS__ && !window.devToolsExtension){
+if (__DEVELOPMENT__ && __DEVTOOLS__ && !window.devToolsExtension) {
   const DevTools = require('./components/DevTools/DevTools');
   ReactDOM.render(
-    <Provider store={store} key="provider">
+    <Provider store={store} key='provider'>
       <div>
         {component}
         <DevTools />
@@ -37,9 +37,9 @@ if(__DEVELOPMENT__ && __DEVTOOLS__ && !window.devToolsExtension){
   );
 } else {
   ReactDOM.render(
-    <Provider store={store} key="provider">
+    <Provider store={store} key='provider'>
       {component}
     </Provider>,
     dest
   );
-};
+}

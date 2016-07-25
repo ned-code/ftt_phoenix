@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { reducer as reduxAsyncConnect } from 'redux-async-connect'
+import { reducer as reduxAsyncConnect } from 'redux-async-connect';
 
 import user from './modules/user/user'; 
 

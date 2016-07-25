@@ -4,11 +4,11 @@ let devUrl;
 
 if (!__PRODUCTION__) {
   devUrl = 'http://localhost:5000/dist/';
-};
+}
 
 if (__PRODUCTION__) {
   devUrl = '/dist/';
-};
+}
 
 export const DEV_URL = devUrl;
 

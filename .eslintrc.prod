@@ -1,0 +1,50 @@
+{ 
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parser": 'babel-eslint',
+  "env": {
+      "browser": true,
+      "es6": true,
+  },
+  "parserOptions": {
+      "ecmaFeatures": {
+          "experimentalObjectRestSpread": true,
+          "modules": true,
+          "jsx": true
+      },
+      "sourceType": "module"
+  },
+  "rules": {
+    indent: ["error", 2],
+    semi: ["error", "always"],
+    no-extra-semi: "error",
+    no-unused-vars: ["error", { "vars":"all", "args":"after-used" }],
+    no-undef: "error",
+    comma-dangle: ["error", "never"],
+    quotes: ["error", "single"],
+    jsx-quotes: ["error", "prefer-single"],
+    array-bracket-spacing: ["error", "always"],
+    object-curly-spacing: ["error", "always"],
+    eol-last: off,
+    space-before-blocks: ["error", "always"],
+    no-var: "error",
+    space-before-function-paren: "error",
+    no-console: "error",
+    no-redeclare: "error",
+    "react/display-name": off,
+    "react/prop-types": "error",
+    "react/no-unknown-property": "error"
+  },
+  "globals": {
+    "window": true,
+    "require": true,
+    "__DEVELOPMENT__": true,
+    "__DEVTOOLS__": true,
+    "module": true,
+    "process": true,
+    "dhtmlx": true,
+    "scheduler": true
+  },
+  "plugins": [
+    "react"
+  ],
+}
