@@ -9,7 +9,7 @@
     "lint": "eslint -c .eslintrc --ext .js --ext .jsx app",
     "lint-prod": "eslint -c .eslintrc.prod --ext .js --ext .jsx app",
     "dev": "npm run lint && concurrently --kill-others \"npm run start-api\" \"npm run start-dev\"",
-    "prod": "npm run build && concurrently --kill-others \"npm run start-api\" \"npm run start-prod\"",
+    "prod": "npm run lint-prod && npm run build && concurrently --kill-others \"npm run start-api\" \"npm run start-prod\"",
     "start-dev": "better-npm-run dev",
     "start-prod": "better-npm-run prod",
     "start-api": "better-npm-run api",

@@ -38,10 +38,12 @@ const common = {
     modulesDirectories: ['node_modules'],
     // alias for beautiful import
     alias: {
-      static: path.join(__dirname, '../app/static/'),
-      components: path.join(__dirname, '../app/components/'),
-      'redux/modules': path.join(__dirname, '../app/redux/modules/'),
+      Pages: path.join(__dirname, '../app/components/Pages'),
+      Containers:path.join(__dirname, '../app/components/Containers'),
+      Modules:path.join(__dirname, '../app/components/Modules'),
       constants: path.join(__dirname, '../app/constants/'),
+      'redux/modules': path.join(__dirname, '../app/redux/modules/'),
+      components: path.join(__dirname, '../app/components/'),
       decorators: path.join(__dirname, '../app/decorators/'),
       utils: path.join(__dirname, '../app/utils/'),
       test: path.join(__dirname, '../app/test/'),
