@@ -40,11 +40,10 @@
     "__DEVELOPMENT__": true,
     "__DEVTOOLS__": true,
     "module": true,
-    "process": true,
-    "dhtmlx": true,
-    "scheduler": true
+    "process": true
   },
   "plugins": [
     "react"
   ],
 }
+

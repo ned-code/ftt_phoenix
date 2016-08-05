@@ -24,7 +24,7 @@ const middlewares = [
 let finalCreateStore;
 if (__DEVELOPMENT__ && __DEVTOOLS__) {
   const { persistState } = require('redux-devtools');
-  const DevTools = require('../../components/DevTools/DevTools');
+  const DevTools = require('devtools/DevTools/DevTools');
   finalCreateStore = compose(
     applyMiddleware(...middlewares),
     window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument(),

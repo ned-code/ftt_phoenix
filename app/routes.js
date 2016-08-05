@@ -1,9 +1,8 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import Root from './components/Root';
-
-import NotFound from './components/Pages/NotFound';
+import Root from 'Root';
+import NotFound from 'Pages/NotFound';
 
 export default (
   <Route path='/' component={ Root }>

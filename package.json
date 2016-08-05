@@ -37,7 +37,7 @@
       }
     },
     "build": {
-      "command": "webpack --progress --verbose --display-error-details --config webpack/common.config.js",
+      "command": "webpack --progress --display-error-details --config webpack/common.config.js",
       "env": {
         "NODE_ENV": "production"
       }

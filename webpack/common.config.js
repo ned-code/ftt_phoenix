@@ -36,17 +36,20 @@ const common = {
   resolve: {
     extensions: ['', '.jsx', '.js', '.json', '.scss'],
     modulesDirectories: ['node_modules'],
-    // alias for beautiful import
     alias: {
-      Pages: path.join(__dirname, '../app/components/Pages'),
-      Containers:path.join(__dirname, '../app/components/Containers'),
-      Modules:path.join(__dirname, '../app/components/Modules'),
+      test: path.join(__dirname, '../app/test/'),
       constants: path.join(__dirname, '../app/constants/'),
       'redux/modules': path.join(__dirname, '../app/redux/modules/'),
-      components: path.join(__dirname, '../app/components/'),
+      'redux/store': path.join(__dirname, '../app/redux/store/'),
+      'redux/api': path.join(__dirname, '../app/redux/api/'),
+      'redux/utils': path.join(__dirname, '../app/redux/utils/'),
+      devtools: path.join(__dirname, '../app/devtools/'),
       decorators: path.join(__dirname, '../app/decorators/'),
-      utils: path.join(__dirname, '../app/utils/'),
-      test: path.join(__dirname, '../app/test/'),
+      Root: path.join(__dirname, '../app/kit/Root'),
+      Pages: path.join(__dirname, '../app/kit/Pages'),
+      Containers:path.join(__dirname, '../app/kit/Containers'),
+      Modules:path.join(__dirname, '../app/kit/Modules'),
+      Components:path.join(__dirname, '../app/kit/Modules'),
     },
   },
 

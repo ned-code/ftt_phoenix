@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { ReduxAsyncConnect } from 'redux-async-connect';
-import configureStore from './redux/store/configureStore';
+import configureStore from 'redux/store/configureStore';
 import routes from './routes';
 
 if (__DEVELOPMENT__) {
@@ -25,7 +25,7 @@ const component = (
 );
 
 if (__DEVELOPMENT__ && __DEVTOOLS__ && !window.devToolsExtension) {
-  const DevTools = require('./components/DevTools/DevTools');
+  const DevTools = require('devtools/DevTools/DevTools');
   ReactDOM.render(
     <Provider store={store} key='provider'>
       <div>
