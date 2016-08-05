@@ -3,7 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: ['./app/index'],
+    main: [`bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath=${__dirname}/../.bootstraprc!bootstrap-loader/no-op.js`, './app/index'],
   },
 
   module: {

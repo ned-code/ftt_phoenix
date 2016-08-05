@@ -2,15 +2,19 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import Root from 'Root';
-import NotFound from 'Pages/NotFound';
+import NotFoundPage from 'Pages/NotFound';
 
-import Home from 'Pages/Home';
+import HomePage from 'Pages/Home';
+import LoginPage from 'Pages/Login';
 
 export default (
   <Route path='/' component={ Root }>
-    <IndexRoute component={ Home } />
+    <IndexRoute component={ HomePage } />
 
-    <Route path='/home' component={ Home } />
-    <Route path='*' component={ NotFound } status={ 404 } />
+    <Route path='/login' component={ LoginPage } />
+
+    <Route path='*' component={ NotFoundPage } status={ 404 } />
   </Route>
 );
+
+

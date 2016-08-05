@@ -16,31 +16,33 @@ let initialState = {};
 export const store = configureStore(initialState);
 export const history = syncHistoryWithStore(browserHistory, store);
 
-const dest = document.getElementById('root');
-const component = (
-  <Router render={(props) =>
-        <ReduxAsyncConnect {...props} filter={item => !item.deferred} />
-      } history={history}>
-    {routes}
-  </Router>
-);
+if (typeof window !== 'undefined') {
+  const dest = document.getElementById('root');
+  const component = (
+    <Router render={(props) =>
+          <ReduxAsyncConnect {...props} filter={item => !item.deferred} />
+        } history={history}>
+      {routes}
+    </Router>
+  );
 
-if (__DEVELOPMENT__ && __DEVTOOLS__ && !window.devToolsExtension) {
-  const DevTools = require('devtools/DevTools/DevTools');
-  ReactDOM.render(
-    <Provider store={store} key='provider'>
-      <div>
+  if (__DEVELOPMENT__ && __DEVTOOLS__ && !window.devToolsExtension) {
+    const DevTools = require('devtools/DevTools/DevTools');
+    ReactDOM.render(
+      <Provider store={store} key='provider'>
+        <div>
+          {component}
+          <DevTools />
+        </div>
+      </Provider>,
+      dest 
+    );
+  } else {
+    ReactDOM.render(
+      <Provider store={store} key='provider'>
         {component}
-        <DevTools />
-      </div>
-    </Provider>,
-    dest 
-  );
-} else {
-  ReactDOM.render(
-    <Provider store={store} key='provider'>
-      {component}
-    </Provider>,
-    dest
-  );
+      </Provider>,
+      dest
+    );
+  }
 }

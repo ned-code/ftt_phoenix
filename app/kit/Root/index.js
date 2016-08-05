@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
+require('./root.scss');
+
 export default class Root extends Component {
   static propTypes = {
     children: PropTypes.object.isRequired

@@ -1,9 +1,14 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
   entry: {
-    main: ['webpack-hot-middleware/client', './app/index'],
+    main: [
+    'bootstrap-loader',
+    'webpack-hot-middleware/client',
+    './app/index'
+    ],
   },
 
   resolve: {
@@ -13,7 +18,8 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.scss$/,
-      loader: 'style-loader!css!postcss-loader!sass-loader',
+      exclude: /node_modules/,
+      loader: ExtractTextPlugin.extract('style-loader', 'css!postcss-loader!sass-loader')
     }],
   },
 

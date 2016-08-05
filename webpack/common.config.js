@@ -26,11 +26,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const common = {
+  eslint: {
+    configFile: '.eslintrc.prod'
+  },
   output: {
     path: __dirname + '/../dist/',
     publicPath: devUrl,
     filename: '[name].js',
-    chunkFilename: '[name].chunk.js',
+    chunkFilename: '[name].[hash].chunk.js'
   },
 
   resolve: {
@@ -48,39 +51,39 @@ const common = {
       Root: path.join(__dirname, '../app/kit/Root'),
       Pages: path.join(__dirname, '../app/kit/Pages'),
       Containers:path.join(__dirname, '../app/kit/Containers'),
+      Components:path.join(__dirname, '../app/kit/Components'),
       Modules:path.join(__dirname, '../app/kit/Modules'),
-      Components:path.join(__dirname, '../app/kit/Modules'),
     },
   },
 
   module: {
     loaders: [{
       test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url?limit=100000&mimetype=application/font-woff',
+      loader: 'url?limit=10000&mimetype=application/font-woff',
     }, {
       test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url?limit=100000&mimetype=application/font-woff2',
+      loader: 'url?limit=10000&mimetype=application/font-woff2',
     }, {
       test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url?limit=100000&mimetype=application/octet-stream',
+      loader: 'url?limit=10000&mimetype=application/octet-stream',
     }, {
       test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url?limit=100000&mimetype=application/font-otf',
+      loader: 'url?limit=10000&mimetype=application/font-otf',
     }, {
       test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'file',
     }, {
       test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-      loader: 'url?limit=100000&mimetype=image/svg+xml',
+      loader: 'url?limit=10000&mimetype=image/svg+xml',
     }, {
       test: /\.js$/,
-      exclude: /node_modules/,
+      exclude: /node_modules|dhtmlx/,
       loader: 'babel-loader',
     }, {
-      test: /\.jpg$/,
+      test: /\.png$/,
       loader: 'file?name=[hash].[name].[ext]',
     }, {
-      test: /\.png$/,
+      test: /\.jpg$/,
       loader: 'file?name=[hash].[name].[ext]',
     }, {
       test: /\.gif$/,
@@ -88,18 +91,13 @@ const common = {
     }, {
       test: /packery/,
       loader: 'imports?define=>false&this=>window',
-    }],
+    },
+    { test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' }
+    ],
   },
 
   externals: { },
   plugins: [
-    // copy assets
-    new CopyWebpackPlugin([
-      { 
-        from: '../app/assets/**/*', 
-        to: '/dist' 
-      },
-    ]),
     // generate bundle.css for server-side-rendering
     new ExtractTextPlugin('bundle.css'),
     // define global constants

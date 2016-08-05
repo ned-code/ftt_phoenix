@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 
-export default class NotFound extends Component {
+export default class NotFoundPage extends Component {
   render () {
     return (
       <section data-page-name='404'>

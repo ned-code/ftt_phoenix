@@ -18,17 +18,14 @@ export const renderFullPage = (html, devPort, domain, initialState = null, head)
         <meta property="og:type" content="website" />
         <meta property="og:url" content=${head ? head : ''} />
 
+        ${head ? head.title.toString() : ''}
+        ${head ? head.meta.toString() : ''}
+
         <!-- Fonts -->
         <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css">
 
-        ${head ? head.title.toString() : ''}
-        ${head ? head.meta.toString() : ''}
-
         ${bundleCSS}
-
-        ${head ? head.title.toString() : ''}
-
       </head>
       <body class="flat-blue">
 
@@ -36,7 +33,9 @@ export const renderFullPage = (html, devPort, domain, initialState = null, head)
 
         <div>
           <script>
-            window.__INITIAL_STATE__ = ${JSON.stringify(initialState || {})};
+            if (typeof window !== 'undefined') {
+              window.__INITIAL_STATE__ = ${JSON.stringify(initialState || {})};
+            }
           </script>
           <script src="http://${domain}:${devPort}/dist/vendor.js"></script>
           <script src="http://${domain}:${devPort}/dist/main.js"></script>

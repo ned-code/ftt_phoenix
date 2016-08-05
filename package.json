@@ -37,7 +37,7 @@
       }
     },
     "build": {
-      "command": "webpack --progress --display-error-details --config webpack/common.config.js",
+      "command": "webpack --progress -v --display-error-details --config webpack/common.config.js",
       "env": {
         "NODE_ENV": "production"
       }
@@ -156,7 +156,7 @@
     "superagent-jsonp": "0.0.6",
     "throttle-function": "0.1.0",
     "url-loader": "0.5.7",
-    "webpack": "^2.1.0-beta.6",
+    "webpack": "2.1.0-beta.15",
     "webpack-dev-middleware": "1.6.1",
     "webpack-dev-server": "2.0.0-beta",
     "webpack-hot-middleware": "2.10.0",
@@ -167,14 +167,25 @@
     "asset-require-hook": "1.0.2",
     "babel-eslint": "^6.0.4",
     "babel-preset-react-hmre": "1.1.1",
+    "bootstrap": "^3.3.7",
+    "bootstrap-loader": "^2.0.0-beta.3",
+    "bootstrap-sass": "^3.3.7",
+    "css-loader": "^0.23.1",
     "eslint": "^2.8.0",
     "eslint-loader": "^1.4.1",
     "eslint-plugin-react": "^4.3.0",
+    "jquery": "^3.1.0",
+    "node-sass": "^3.8.0",
     "react": "15.1.0",
     "react-redux": "4.4.5",
     "react-router": "2.4.1",
     "react-router-redux": "^4.0.5",
     "redux-async-connect": "^1.0.0-rc4",
-    "redux-batched-subscribe": "0.1.4"
+    "redux-batched-subscribe": "0.1.4",
+    "resolve-url": "^0.2.1",
+    "resolve-url-loader": "^1.6.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7"
   }
 }
