@@ -173,6 +173,7 @@
     "react": "15.1.0",
     "react-redux": "4.4.5",
     "react-router": "2.4.1",
+    "react-router-redux": "^4.0.5",
     "redux-async-connect": "^1.0.0-rc4",
     "redux-batched-subscribe": "0.1.4"
   }

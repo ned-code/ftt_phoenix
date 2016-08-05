@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 
-export default class NotFound extends Component {
+export default class Home extends Component {
   render () {
     return (
-      <section data-page-name='404'>
+      <section data-page-name='Home' >
         <Helmet
-          title='NotFound'
+          title='Home'
         />
-        <h1>404</h1>
+        <h1> Home </h1>
       </section>
     );
   }

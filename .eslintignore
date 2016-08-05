@@ -3,3 +3,4 @@ api/*
 app/server/*
 app/test/*
 flat-admin/*
+hooks/*
