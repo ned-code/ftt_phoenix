@@ -1,5 +1,5 @@
-import * as user from './user/user';
+import * as user from 'redux/modules/user';
 
-export { 
+export {
   user
-};
+}
