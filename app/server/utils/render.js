@@ -21,16 +21,13 @@ export const renderFullPage = (html, devPort, domain, initialState = null, head)
         ${head ? head.title.toString() : ''}
         ${head ? head.meta.toString() : ''}
 
-        <!-- Fonts -->
-        <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css">
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 
         ${bundleCSS}
       </head>
-      <body class="flat-blue">
-
-        <div id="root" class="app-container">${html ? html : ''}</div>
-
+      <body>
+        <div id="root">${html ? html : ''}</div>
         <div>
           <script>
             if (typeof window !== 'undefined') {

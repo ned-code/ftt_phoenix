@@ -77,7 +77,7 @@ const common = {
       loader: 'url?limit=10000&mimetype=image/svg+xml',
     }, {
       test: /\.js$/,
-      exclude: /node_modules|dhtmlx/,
+      exclude: /node_modules/,
       loader: 'babel-loader',
     }, {
       test: /\.png$/,
@@ -92,7 +92,8 @@ const common = {
       test: /packery/,
       loader: 'imports?define=>false&this=>window',
     },
-    { test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' }
+    // Bootstrap 3 
+    { test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' },
     ],
   },
 
@@ -128,7 +129,7 @@ const common = {
 };
 
 
-common.plugins.splice(0,0, new CleanWebpackPlugin(['dist'], { root: process.cwd() }));
+//common.plugins.splice(0,0, new CleanWebpackPlugin(['dist'], { root: process.cwd() }));
 if (process.env.NODE_ENV === 'development') {
   module.exports = merge(development, common);
 };

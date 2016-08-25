@@ -36,7 +36,6 @@ app.use(/\/api\/(.*)/, (req, res) => {
 
 // Static directory for express
 app.use('/dist', Express.static(__dirname + '/../../dist/'));
-app.use('/flat-admin', Express.static(__dirname + '/../../flat-admin/'));
 
 app.get(/.*/, (req, res) => {
   const domain = req.get('host').replace(/\:.*/, '');

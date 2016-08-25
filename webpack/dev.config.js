@@ -5,7 +5,6 @@ module.exports = {
   devtool: 'source-map',
   entry: {
     main: [
-    'bootstrap-loader',
     'webpack-hot-middleware/client',
     './app/index'
     ],
@@ -19,7 +18,7 @@ module.exports = {
     loaders: [{
       test: /\.scss$/,
       exclude: /node_modules/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css!postcss-loader!sass-loader')
+      loader: 'style-loader!css!postcss-loader!sass-loader',
     }],
   },
 
