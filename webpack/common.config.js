@@ -48,6 +48,7 @@ const common = {
       'redux/utils': path.join(__dirname, '../app/redux/utils/'),
       devtools: path.join(__dirname, '../app/devtools/'),
       decorators: path.join(__dirname, '../app/decorators/'),
+      Img: path.join(__dirname, '../app/kit/Img'),
       Root: path.join(__dirname, '../app/kit/Root'),
       Pages: path.join(__dirname, '../app/kit/Pages'),
       Containers:path.join(__dirname, '../app/kit/Containers'),
