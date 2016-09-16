@@ -41,6 +41,7 @@ const common = {
     modulesDirectories: ['node_modules'],
     alias: {
       test: path.join(__dirname, '../app/test/'),
+      libs: path.join(__dirname, '../app/libs/'),
       constants: path.join(__dirname, '../app/constants/'),
       'redux/modules': path.join(__dirname, '../app/redux/modules/'),
       'redux/store': path.join(__dirname, '../app/redux/store/'),
@@ -116,7 +117,11 @@ const common = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: (module) => {
-        return module.resource && module.resource.indexOf('node_modules') !== -1
+        return module.resource 
+          && (
+            module.resource.indexOf('node_modules') !== -1
+            || module.resource.indexOf('libs') !== -1
+          )
       },
     })
   ],

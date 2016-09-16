@@ -85,7 +85,7 @@ export default class User extends Component {
                       <div className="col-md-12">
                         <div className="form-group">
                           <label>About Me</label>
-                          <textarea rows="5" className="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                          <textarea rows="5" className="form-control" placeholder="Here can be your description" >Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
                         </div>
                       </div>
                     </div>

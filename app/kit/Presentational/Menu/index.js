@@ -9,7 +9,7 @@ export default class Menu extends Component {
             <IndexLink to='/' className='simple-text'>FamilyTreeTop</IndexLink>
         </div>
         <ul className='nav'>
-          <li className='active'>
+          <li>
             <Link activeClassName='active' to='/dashboard'>
               <i className='pe-7s-graph'></i>
               <p>Dashboard</p>
@@ -33,7 +33,7 @@ export default class Menu extends Component {
               <p>Family Tree</p>
             </Link>
           </li>
-          <li>
+          <li style={{display:'none'}}>
             <Link activeClassName='active'to='/notifications'>
               <i className='pe-7s-bell'></i>
               <p>Notifications</p>
