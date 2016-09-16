@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 
-export default class HomePage extends Component {
+export default class Dashboard extends Component {
   render () {
     return (
-      <section data-page-name='Home' >
+      <section data-page-name='Dashboard' >
         <Helmet
-          title='Home'
+          title='Dashboard'
         />
-        <h1> Home </h1>
+        <h1> Dashboard </h1>
       </section>
     );
   }

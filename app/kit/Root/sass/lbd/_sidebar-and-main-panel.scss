@@ -88,7 +88,7 @@
                 opacity: 1;
             }
             
-            &.active > a{
+            & > a.active{
                 color: #FFFFFF;
                 opacity: 1;
                 background: rgba(255,255,255,0.23);  

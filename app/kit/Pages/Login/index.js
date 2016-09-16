@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 
-import LoginComponent from 'Components/Login';
+import {
+  Login 
+} from 'Presentational';
 
 
 export default class LoginPage extends Component {
@@ -11,7 +13,7 @@ export default class LoginPage extends Component {
         <Helmet
           title='Login'
         />
-        <LoginComponent />
+        <Login />
       </div>
     );
   }

@@ -51,7 +51,7 @@ const common = {
       Root: path.join(__dirname, '../app/kit/Root'),
       Pages: path.join(__dirname, '../app/kit/Pages'),
       Containers:path.join(__dirname, '../app/kit/Containers'),
-      Components:path.join(__dirname, '../app/kit/Components'),
+      Presentational:path.join(__dirname, '../app/kit/Presentational'),
       Modules:path.join(__dirname, '../app/kit/Modules'),
     },
   },
