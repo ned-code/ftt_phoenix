@@ -1,0 +1,16 @@
+neo4j:
+  restart: always
+  image: neo4j:3.0
+  ports:
+    - "17474:7474"
+
+PostgreSQL:
+  restart: always
+  image: sameersbn/postgresql:9.5-3 
+  environment:
+    - DEBUG=false
+    - DB_USER=docker
+    - DB_PASS=docker
+  ports:
+    - "5432:5432"
+
