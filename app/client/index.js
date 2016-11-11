@@ -5,8 +5,9 @@ import { Provider } from 'react-redux';
 import DevTools from 'DevTools/DevTools';
 import { createRoutes } from 'Routes';
 
-import { store } from 'redux/store';
+import { configurateStore } from 'redux/store/configurateStore';
 
+const store = configurateStore(); 
 const routes = createRoutes(store);
 
 ReactDOM.render(

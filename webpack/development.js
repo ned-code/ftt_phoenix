@@ -8,24 +8,27 @@ const staticPath = path.join(__dirname, '../app/static');
 const distPath = path.join(__dirname, '../dist');
 
 export default {
-  devtool: 'eval-source-map',
+  devtool: 'eval',
   entry: [
-    'webpack-hot-middleware/client',
+    'webpack-hot-middleware/client?reload=true',
     path.join(clientPath, 'index.js')
   ],
   output: {
-    filename: 'main.js',
-    path: distPath
+    path: distPath,
+    publicPath: staticPath,
+    filename: '[name].js',
+    chunkFilename: '[name].[hash].chunk.js'
   },
   resolve: {
+    extensions: ['', '.jsx', '.js', '.json', '.scss' ],
+    modulesDirectories: [ 'node_modules' ],
     alias: {
       Components: path.join(clientPath, 'component'),
       Containers: path.join(clientPath, 'containers'),
       Pages: path.join(clientPath, 'pages'),
       Routes: path.join(clientPath, 'routes'),
       DevTools: path.join(clientPath, 'devtools'),
-      'redux/api': path.join(clientPath, 'redux/api'),
-      'redux/store': path.join(clientPath, 'redux/middlewares'),
+      'redux/store': path.join(clientPath, 'redux/store'),
       'redux/middlewares': path.join(clientPath, 'redux/middlewares'),
       'redux/modules': path.join(clientPath, 'redux/modules')
     }
@@ -59,7 +62,7 @@ export default {
       template: path.join(staticPath, 'index.html')
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor.js',
+      name: 'vendor',
       minChunks: (module) => {
         return module.resource 
           && module.resource.indexOf('node_modules') !== -1

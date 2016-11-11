@@ -8,7 +8,7 @@ import Dashboard from 'Pages/Dashboard';
 import Members from 'Pages/Members';
 
 export const createRoutes = (store) => {
-
+  
   const history = syncHistoryWithStore(browserHistory, store);
 
   return (
