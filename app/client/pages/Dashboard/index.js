@@ -19,17 +19,11 @@ import Logged from 'Components/Logged';
 export default class Dashboard extends Component {
   constructor (props) {
     super(props);
-    this.state = {
-      isDrawerOpen : false
-    }
+    this.state = { open : false }
   }
 
-  onTouchTap = () => {
-    const { isDrawerOpen } = this.state;
-    this.setState({
-      isDrawerOpen : !isDrawerOpen
-    });
-  }
+  handleToggle = () => this.setState({open: !this.state.open});
+  handleClose = () => this.setState({open: false});
 
   render () {
     return (
@@ -38,11 +32,15 @@ export default class Dashboard extends Component {
           <AppBar
             title="FamilyTreeTop"
             iconElementRight={<Logged />}
-            onLeftIconButtonTouchTap={this.onTouchTap}
+            onLeftIconButtonTouchTap={this.handleToggle}
           />
-          <Drawer open={this.state.isDrawerOpen}>
-            <MenuItem>Menu Item</MenuItem>
-            <MenuItem>Menu Item 2</MenuItem>
+          <Drawer 
+            open={this.state.open}
+            onRequestChange={(open) => this.setState({open})}
+          >
+            <MenuItem onTouchTap={this.handleClose}>Dashboard</MenuItem>
+            <MenuItem onTouchTap={this.handleClose}>Members</MenuItem>
+            <MenuItem onTouchTap={this.handleClose}>Family Tree</MenuItem>
           </Drawer>
         </div>
       </MuiThemeProvider>
