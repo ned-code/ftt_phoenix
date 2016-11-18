@@ -1,16 +1,23 @@
-neo4j:
-  restart: always
-  image: neo4j:3.0
-  ports:
-    - "17474:7474"
+version: "2"
+services: 
+  neo4j:
+    restart: always
+    image: neo4j:latest
+    ports:
+      - "17474:7474"
+    volumes:
+      - ./neo4j/db:/data
+  postgresql:
+    restart: always
+    image: postgres:latest 
+    environment:
+      - DEBUG=false
+      - DB_USER=docker
+      - DB_PASS=docker
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgresql:/data
 
-PostgreSQL:
-  restart: always
-  image: sameersbn/postgresql:9.5-3 
-  environment:
-    - DEBUG=false
-    - DB_USER=docker
-    - DB_PASS=docker
-  ports:
-    - "5432:5432"
+
 

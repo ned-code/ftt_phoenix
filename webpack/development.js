@@ -8,7 +8,7 @@ const staticPath = path.join(__dirname, '../app/static');
 const distPath = path.join(__dirname, '../dist');
 
 export default {
-  devtool: 'eval',
+  devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
     path.join(clientPath, 'index.js')
@@ -30,6 +30,7 @@ export default {
       DevTools: path.join(clientPath, 'devtools'),
       'redux/store': path.join(clientPath, 'redux/store'),
       'redux/middlewares': path.join(clientPath, 'redux/middlewares'),
+      'redux/utils': path.join(clientPath, 'redux/utils'),
       'redux/modules': path.join(clientPath, 'redux/modules')
     }
   },
@@ -38,7 +39,7 @@ export default {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: [ 'babel' ]
+        loaders: [ 'babel-loader' ]
       },
       {
         test: /\.json$/,
