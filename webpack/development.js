@@ -24,7 +24,7 @@ export default {
     extensions: ['', '.jsx', '.js', '.json', '.scss' ],
     modulesDirectories: [ 'node_modules' ],
     alias: {
-      Components: path.join(clientPath, 'component'),
+      Components: path.join(clientPath, 'components'),
       Containers: path.join(clientPath, 'containers'),
       Pages: path.join(clientPath, 'pages'),
       Routes: path.join(clientPath, 'routes'),
@@ -48,11 +48,7 @@ export default {
       },
       {
         test: /\.scss$/,
-        loader: 'style-loader!css!postcss-loader!sass-loader',
-      },
-      {
-        test: /\.css$/,
-        loader: 'style!css?modules!postcss'
+        loaders: ["style", "css", "sass"]
       },
       { 
         test: /\.(png|jpg|jpeg|gif|woff)$/, 
