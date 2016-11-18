@@ -35,10 +35,13 @@ export default class Dashboard extends Component {
             onLeftIconButtonTouchTap={this.handleToggle}
           />
           <Drawer 
+            docked={false}
             open={this.state.open}
             onRequestChange={(open) => this.setState({open})}
           >
-            <MenuItem onTouchTap={this.handleClose}>Dashboard</MenuItem>
+            <MenuItem onTouchTap={this.handleClose}>
+              <NavigationExpand /> Dashboard
+            </MenuItem>
             <MenuItem onTouchTap={this.handleClose}>Members</MenuItem>
             <MenuItem onTouchTap={this.handleClose}>Family Tree</MenuItem>
           </Drawer>
