@@ -10,12 +10,13 @@ const distPath = path.join(__dirname, '../dist');
 export default {
   devtool: 'source-map',
   entry: [
-    'webpack-hot-middleware/client?reload=true',
+    'react-hot-loader/patch',
+    'webpack-hot-middleware/client',
     path.join(clientPath, 'index.js')
   ],
   output: {
     path: distPath,
-    publicPath: staticPath,
+    publicPath: distPath,
     filename: '[name].js',
     chunkFilename: '[name].[hash].chunk.js'
   },
@@ -46,6 +47,10 @@ export default {
         loader: 'json-loader'
       },
       {
+        test: /\.scss$/,
+        loader: 'style-loader!css!postcss-loader!sass-loader',
+      },
+      {
         test: /\.css$/,
         loader: 'style!css?modules!postcss'
       },
@@ -57,10 +62,12 @@ export default {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+
     new HtmlWebpackPlugin({
-      //favicon: '',
+      devServer: 'http://localhost:3000',
       inject: 'body',
-      template: path.join(staticPath, 'index.html')
+      template: path.join(staticPath, 'index.html'),
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -73,7 +80,6 @@ export default {
       'process.env': {
         'NODE_ENV': '"development"'
       }
-    }),
-    new ExtractTextPlugin('styles.css')
+    })
   ],
 }
