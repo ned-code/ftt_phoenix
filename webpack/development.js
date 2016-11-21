@@ -29,6 +29,7 @@ export default {
       Pages: path.join(clientPath, 'pages'),
       Routes: path.join(clientPath, 'routes'),
       DevTools: path.join(clientPath, 'devtools'),
+      Static: staticPath, 
       'redux/store': path.join(clientPath, 'redux/store'),
       'redux/middlewares': path.join(clientPath, 'redux/middlewares'),
       'redux/utils': path.join(clientPath, 'redux/utils'),
@@ -51,7 +52,7 @@ export default {
         loaders: ["style", "css", "sass"]
       },
       { 
-        test: /\.(png|jpg|jpeg|gif|woff)$/, 
+        test: /\.(png|jpg|jpeg|gif|svg|woff)$/, 
         loader: 'url-loader?limit=8192' 
       } 
     ]

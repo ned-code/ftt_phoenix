@@ -20,7 +20,7 @@ export const createRoutes = (store) => {
   return (
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={Dashboard} />
+        <IndexRoute component={Members} />
         <Route path="dashboard" component={Dashboard} />
         <Route path="members" component={Members} />
 
