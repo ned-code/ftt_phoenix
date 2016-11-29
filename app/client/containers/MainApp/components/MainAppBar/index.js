@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 /* material-ui */
 import {
   IconButton,
