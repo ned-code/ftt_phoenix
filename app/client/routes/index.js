@@ -2,11 +2,13 @@ import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
-import App from 'Containers/App';
+import MainApp from 'Containers/MainApp';
 
 import {
   Dashboard,
+  Calendar,
   Members,
+  Family,
 
   Login,
 
@@ -19,10 +21,12 @@ export const createRoutes = (store) => {
 
   return (
     <Router history={history}>
-      <Route path="/" component={App}>
-        <IndexRoute component={Members} />
-        <Route path="dashboard" component={Dashboard} />
-        <Route path="members" component={Members} />
+      <Route path='/' component={MainApp}>
+        <IndexRoute component={Dashboard} />
+        <Route path='dashboard' component={Dashboard} />
+        <Route path='calendar' component={Calendar} />
+        <Route path='members' component={Members} />
+        <Route path='family' component={Family} />
 
         <Route path="login" component={Login} />
 
