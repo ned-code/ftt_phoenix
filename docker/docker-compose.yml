@@ -5,19 +5,15 @@ services:
     image: neo4j:latest
     ports:
       - "17474:7474"
-    volumes:
-      - ./neo4j/db:/data
   postgresql:
     restart: always
     image: postgres:latest 
     environment:
-      - DEBUG=false
+      - DEBUG=true
       - DB_USER=docker
       - DB_PASS=docker
     ports:
       - "5432:5432"
-    volumes:
-      - ./postgresql:/data
 
 
 

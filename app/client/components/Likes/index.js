@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 /* material-ui */
 import { grey400 } from 'material-ui/styles/colors';
 
-import { Avatar, IconButton, IconMenu, MenuItem } from 'material-ui';
+import { Paper, Toolbar, Subheader, ToolbarGroup, Avatar, IconButton, IconMenu, MenuItem } from 'material-ui';
 
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import { List, ListItem, makeSelectable } from 'material-ui/List';
@@ -21,24 +21,24 @@ const likesPull = [
 export default class Likes extends Component {
   render () {
     return (
-      <Card>
-        <CardHeader 
-          title="Likes"
-        />
-        <CardText>
-          <List>
-            {
-              likesPull.map((item, key) => <ListItem 
-                key={key}
-                primaryText={item.n}
-                secondaryText={ <p> {item.d} </p> }
-                secondaryTextLines={2}
-                leftAvatar={<Avatar>{item.a}</Avatar>}
-              />)
-            }
-          </List>
-        </CardText>
-      </Card>
+      <Paper zDepth={1} style={{ width: '100%' }}>
+        <Toolbar style={{ width: '100%' }} >
+          <ToolbarGroup firstChild={true}>
+            <Subheader>Likes</Subheader>
+          </ToolbarGroup>
+        </Toolbar>
+        <List>
+          {
+            likesPull.map((item, key) => <ListItem 
+              key={key}
+              primaryText={item.n}
+              secondaryText={ <p> {item.d} </p> }
+              secondaryTextLines={2}
+              leftAvatar={<Avatar>{item.a}</Avatar>}
+            />)
+          }
+        </List>
+      </Paper> 
     );
   }
 }

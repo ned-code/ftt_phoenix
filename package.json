@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker-up": "docker-compose -f docker/docker-compose.yml up",
     "build": "webpack --config webpack/webpack.config.babel.js",
-    "dev": "babel-node app/server/index.js"
+    "dev": "babel-node app/server/index.js",
+    "api": "babel-watch api/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +22,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.18.0",
+    "babel-watch": "^2.0.3",
     "css-loader": "^0.26.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
@@ -28,6 +30,7 @@
     "http-proxy": "^1.15.2",
     "json-loader": "^0.5.4",
     "node-sass": "^3.13.0",
+    "nodemon": "^1.11.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.1.1",
@@ -42,8 +45,11 @@
     "webpack-hot-middleware": "^2.13.2"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "fs": "0.0.1-security",
     "material-ui": "^0.16.4",
+    "neo4j-driver": "^1.1.0-M03",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
@@ -52,6 +58,8 @@
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
+    "socket.io": "^1.7.1",
+    "socket.io-client": "^1.7.1",
     "superagent": "^2.3.0"
   }
 }

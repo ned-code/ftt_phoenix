@@ -1,27 +1,30 @@
 import path from 'path';
-import webpack from 'webpack';
 import express from 'express';
-
-import webpackConfig from '../../webpack/webpack.config.babel.js';
 
 const app = express();
 
 import httpProxy from 'http-proxy';
+
 const targetUrl = 'http://localhost:4000';
 const proxy = httpProxy.createProxyServer({
   target: targetUrl,
   ws: true
 });
 
+const env = process.env.NODE_ENV || 'development';
+
+import webpackConfig from '../../webpack/webpack.config.babel.js';
+import webpack from 'webpack';
+
 const compiler = webpack(webpackConfig);
 
-app.use(require('webpack-dev-middleware')(compiler, {
-  publicPath: webpackConfig.output.publicPath,
-  historyApiFallback: true
-}));
-
-app.use(require('webpack-hot-middleware')(compiler));
-
+if (env === 'development') {
+  app.use(require('webpack-dev-middleware')(compiler, {
+    publicPath: webpackConfig.output.publicPath,
+    historyApiFallback: true
+  }));
+  app.use(require('webpack-hot-middleware')(compiler));
+};
 
 // Proxy to API server
 app.use('/api', (req, res) => {
@@ -29,11 +32,13 @@ app.use('/api', (req, res) => {
 });
 
 app.use('/ws', (req, res) => {
-  proxy.web(req, res, {target: targetUrl + '/ws'});
+  proxy.web(req, res, { target: targetUrl + '/ws' });
 });
 
+// Render
 app.get('*', (req, res) => {
   var filename = path.join(compiler.outputPath, 'index.html');
+
   compiler.outputFileSystem.readFile(filename, function(err, result){
     if (err) {
       return next(err);

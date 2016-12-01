@@ -17,7 +17,6 @@ export default class NewsFeed extends Component {
   render () {
     return (
       <div style={{ width: '500px' }}>
-        <Subheader>NewsFeed</Subheader>
         {
           newsFeed.map((item, key) => (
             <Card key={key}>
