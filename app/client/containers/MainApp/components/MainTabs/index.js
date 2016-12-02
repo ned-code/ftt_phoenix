@@ -15,7 +15,7 @@ export default class MainTabs extends Component {
 
   render () {
     let pathname = window.location.pathname.split('v1/')[1];
-    if(pathname.length == 0 || pathname === 'home'){
+    if(!pathname || pathname.length == 0 || pathname === 'home'){
       pathname = 'dashboard';
     };
 

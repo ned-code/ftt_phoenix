@@ -1,5 +1,11 @@
-export default function load(req) {
+export default function load(req, params, db) {
   return new Promise((resolve, reject) => {
-    resolve(true);
+    db.postgresql.knex
+    .select()
+    .from('users')
+    .then( data => {
+      console.log(data);
+      resolve(data);
+    });
   });
 }

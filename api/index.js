@@ -14,15 +14,18 @@ const server = new http.createServer(app);
 const io = new SocketIo(server);
 io.path('/ws');
 
+import PostgreSQLDB from './db/postgresql';
+import Neo4jDB from './db/neo4j';
+
+const db = { postgresql: new PostgreSQLDB, neo4j: new Neo4jDB };
+
 app.use(bodyParser.json());
 
 app.use((req, res) => {
   const splittedUrlPath = req.url.split('?')[0].split('/').slice(1);
-
-  const {action, params} = mapUrl(actions, splittedUrlPath);
-
+  const { action, params } = mapUrl(actions, splittedUrlPath);
   if (action) {
-    action(req, params)
+    action(req, params, db)
       .then((result) => {
         if (result instanceof Function) {
           result(res);

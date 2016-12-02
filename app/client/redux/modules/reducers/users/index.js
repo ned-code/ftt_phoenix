@@ -6,13 +6,22 @@ import {
   LOAD_FAIL
 } from 'redux/modules/constants/users';
 
-const initialState = {};
+const initialState = {
+  status: null,
+  data: null
+};
 
 /* REDUCER */
 export default createReducer({
-  [LOAD]: (...rest) => console.log('LOAD', rest),
-  [LOAD_SUCCESS]: () => console.log('LOAD_SUCCESS'),
-  [LOAD_FAIL]: () => console.log('LOAD_FAIL')
+  [LOAD]: (state, action) => {
+    return { ...state, status: 'load' };
+  },
+  [LOAD_SUCCESS]: (state, action) => {
+    return { ...state, status: 'success', data: action.result };
+  },
+  [LOAD_FAIL]: (state, action) => {
+    return { ...state, status: 'fail' };
+  }
 }, initialState); 
 
 /* SELECTORS */
