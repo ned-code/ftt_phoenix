@@ -11,6 +11,7 @@ import {
   Family,
 
   Login,
+  Landing,
 
   NotFound
 } from 'Pages';
@@ -21,17 +22,18 @@ export const createRoutes = (store) => {
 
   return (
     <Router history={history}>
-      <Route path='/' component={MainApp}>
+      <Route path='/' component={Landing} />
+      <Route path='/login' component={Login} />
+      <Route path='/v1' component={MainApp}>
         <IndexRoute component={Dashboard} />
         <Route path='dashboard' component={Dashboard} />
         <Route path='calendar' component={Calendar} />
         <Route path='members' component={Members} />
         <Route path='family' component={Family} />
 
-        <Route path="login" component={Login} />
-
         <Route path='*' component={NotFound} status={404} />
       </Route>
+      <Route path='*' component={NotFound} status={404} />
     </Router>
 
   );

@@ -25,6 +25,7 @@ export default {
     modulesDirectories: [ 'node_modules' ],
     alias: {
       Components: path.join(clientPath, 'components'),
+      Presentational: path.join(clientPath, 'presentational'),
       Containers: path.join(clientPath, 'containers'),
       Pages: path.join(clientPath, 'pages'),
       Routes: path.join(clientPath, 'routes'),

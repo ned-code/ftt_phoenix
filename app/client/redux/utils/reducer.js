@@ -1,5 +1,5 @@
 export const createReducer = (handlers, initialState) => 
   (state = initialState, action = {}) => 
-    !!handlers[action.type] && 'function' === typeof(handlers[action.type]) 
-      ? handlers[action.type](state, action) 
+    !!handlers[action.name] && 'function' === typeof(handlers[action.name]) 
+      ? handlers[action.name](state, action) 
       : state;

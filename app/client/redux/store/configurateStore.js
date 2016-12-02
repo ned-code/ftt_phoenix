@@ -21,7 +21,7 @@ export const configurateStore = (initialState = {}) => {
     reducers,
     initialState,
     applyMiddleware(
-      clientMiddleware(client),
+      clientMiddleware(io, client),
       thunk,
       routerMiddleware(browserHistory),
       createLogger({ collapsed: true })

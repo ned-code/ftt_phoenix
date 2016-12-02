@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 
-import { Paper, Toolbar, Subheader, ToolbarGroup, Avatar, IconButton, IconMenu, MenuItem } from 'material-ui';
+import { Paper, RaisedButton, Toolbar, Subheader, ToolbarGroup, Avatar, IconButton, IconMenu, MenuItem } from 'material-ui';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
+import IconNavigationMoreVert from 'material-ui/svg-icons/navigation/more-vert'
+
+import Row from './components/Row';
+
 export default class MembersTable extends Component {
+
   render () {
     return (
       <Paper zDepth={1} >
@@ -17,36 +22,24 @@ export default class MembersTable extends Component {
               <TableHeaderColumn>Name</TableHeaderColumn>
               <TableHeaderColumn>Birth</TableHeaderColumn>
               <TableHeaderColumn>BirthPlace</TableHeaderColumn>
+              <TableHeaderColumn></TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
             adjustForCheckbox={false}
             displayRowCheckbox={false}
           >
-            <TableRow>
-              <TableRowColumn>1</TableRowColumn>
-              <TableRowColumn>John Smith</TableRowColumn>
-              <TableRowColumn>Employed</TableRowColumn>
-              <TableRowColumn>Employed</TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn>2</TableRowColumn>
-              <TableRowColumn>Randal White</TableRowColumn>
-              <TableRowColumn>Unemployed</TableRowColumn>
-              <TableRowColumn>Unemployed</TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn>3</TableRowColumn>
-              <TableRowColumn>Stephanie Sanders</TableRowColumn>
-              <TableRowColumn>Employed</TableRowColumn>
-              <TableRowColumn>Employed</TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn>4</TableRowColumn>
-              <TableRowColumn>Steve Brown</TableRowColumn>
-              <TableRowColumn>Employed</TableRowColumn>
-              <TableRowColumn>Employed</TableRowColumn>
-            </TableRow>
+            <Row 
+              relation={'is u'}
+              name={'Alexander'}
+              birth={new Date(1987, 9, 18)}
+              birthplace={'Minsk, Belarus'}
+              onEdit={()=>console.log('edit')}
+              onAddParent={()=>console.log('add parent')}
+              onAddSpouse={()=>console.log('add spouse')}
+              onAddChild={()=>console.log('add child')}
+              onDelete={()=>console.log('delete')}
+            />
           </TableBody>
         </Table>
       </Paper>
