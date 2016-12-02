@@ -34,6 +34,7 @@ export default {
       'redux/store': path.join(clientPath, 'redux/store'),
       'redux/middlewares': path.join(clientPath, 'redux/middlewares'),
       'redux/utils': path.join(clientPath, 'redux/utils'),
+      'redux/services': path.join(clientPath, 'redux/services'),
       'redux/modules': path.join(clientPath, 'redux/modules')
     }
   },
