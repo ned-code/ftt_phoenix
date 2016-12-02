@@ -5,20 +5,17 @@ const methods = [ 'get', 'post', 'put', 'patch', 'del' ];
 
 function formatUrl (path) {
   const adjustedPath = path[0] !== '/' ? '/' + path : path;
-  return 'localhost:3000/api' + adjustedPath;
+  return 'http://localhost:3000/api' + adjustedPath;
 }
 
-export default function Server (client, io){
-
-  static io = null;
-  static api = null;
+export default class Server {
 
   constructor () {
-    Server.io = client(`http://${document.domain}:4000`);
-    Server.api = {};
+    this.io = client(`http://${document.domain}:4000`);
+    this.api = {};
 
     methods.forEach(
-      (method) => Server.api[method] = (path, { params, data } = {}) => new Promise((resolve, reject) => {
+      (method) => this.api[method] = (path, { params, data } = {}) => new Promise((resolve, reject) => {
         const request = superagent[method](formatUrl(path));
 
         if (params) {
@@ -33,6 +30,12 @@ export default function Server (client, io){
           return err ? reject(body || err) : resolve(body);
         });
     }));
+  }
+
+  emit = (ch, data, fn) => {
+    return new Promise((resolve, reject) => {
+      this.io.emit(ch, data, (err, data) => !!err ? reject(err) : resolve(data));
+    })
   }
 
   static addListener (name, fn) {

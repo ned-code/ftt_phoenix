@@ -1,1 +1,1 @@
-export * as test from './test/index';
+export * as users from './users';
