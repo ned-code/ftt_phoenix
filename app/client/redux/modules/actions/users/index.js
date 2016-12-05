@@ -5,7 +5,6 @@ import {
 } from 'redux/modules/constants/users';
 
 export function load() {
-  console.log('try load');
   return {
     actions: [ LOAD, LOAD_SUCCESS, LOAD_FAIL ],
     promise: (server) => server.api.get('/users/load')
