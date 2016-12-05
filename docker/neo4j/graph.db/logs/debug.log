@@ -2066,3 +2066,12 @@ RETURN r;
 2016-12-05 15:11:01.768+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 562ms.
 2016-12-05 15:11:12.275+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 10000ms.
 2016-12-05 15:11:13.829+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 1453ms.
+2016-12-05 15:12:34.975+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 10000ms.
+2016-12-05 15:12:44.832+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 9756ms.
+2016-12-05 15:12:56.725+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 10000ms.
+2016-12-05 15:13:06.825+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 10000ms.
+2016-12-05 15:13:08.001+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 1075ms.
+2016-12-05 15:13:09.640+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 510ms.
+2016-12-05 15:13:20.024+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 10006ms.
+2016-12-05 15:13:27.303+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 7179ms.
+2016-12-05 15:13:31.746+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 3723ms.
