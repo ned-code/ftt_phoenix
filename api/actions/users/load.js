@@ -1,8 +1,7 @@
-export default function load(req, params, db) {
-  const session = db.neo4j.session();
+export default function load(req, params, models) {
 
-  const getUsers = () => session.run('MATCH (n:PERSON) RETURN n');
-  const getEvents = () => session.run('MATCH p=()-[r:EVENT]->() RETURN p');
+  const getUsers = models.Users.getUsers;
+  const getEvents = models.Users.getEvents;
 
   return Promise.all([getUsers(), getEvents()])
   .then(data => {

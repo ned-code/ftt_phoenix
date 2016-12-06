@@ -1,5 +1,3 @@
-//https://github.com/brianc/node-postgres
-
 import knex from 'knex';
 
 export default class PostgreSQLDB {
