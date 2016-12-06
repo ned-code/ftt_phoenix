@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { Redirect } from 'react-router';
 
-
 /* material-ui */
 import {
   Tabs,
@@ -11,8 +10,7 @@ import {
 
 export default class MaterialTabs extends Component {
 
-  loadUrl = (url) => {
-  }
+  loadUrl = (url) => this.props.onChangeTab(url)
 
   render () {
     let pathname = window.location.pathname.split('v1/')[1];
@@ -22,7 +20,7 @@ export default class MaterialTabs extends Component {
 
     return (
       <Tabs value={pathname}>
-        <Tab label="Dashboard" value="dashboard"  onActive={()=>this.loadUrl("dashboard")} />
+        <Tab label="Dashboard" value="dashboard" onActive={()=>this.loadUrl("dashboard")} />
         <Tab label="Calendar" value="calendar" onActive={()=>this.loadUrl("calendar")} />
         <Tab label="Members" value="members" onActive={()=>this.loadUrl("members")} />
         <Tab label="Family" value="family" onActive={()=>this.loadUrl("family")} />

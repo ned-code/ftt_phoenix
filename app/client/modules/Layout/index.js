@@ -6,11 +6,15 @@ import MaterialAppBar from './components/AppBar';
 import MaterialTabs from './components/Tabs';
 
 export default class Layout extends Module {
+  onChangeTab = (url) => {
+    console.log(url);
+  }
+
   moduleRender = () => {
     return (
       <div>
         <MaterialAppBar />
-        <MaterialTabs />
+        <MaterialTabs onChangeTab={ this.onChangeTab } />
         <div className='wrapper'>
           {
             React.Children.map(
