@@ -23,19 +23,16 @@ export default {
   resolve: {
     extensions: ['', '.jsx', '.js', '.json', '.scss' ],
     modulesDirectories: [ 'node_modules' ],
+
     alias: {
-      Components: path.join(clientPath, 'components'),
-      Presentational: path.join(clientPath, 'presentational'),
-      Containers: path.join(clientPath, 'containers'),
-      Pages: path.join(clientPath, 'pages'),
-      Routes: path.join(clientPath, 'routes'),
-      DevTools: path.join(clientPath, 'devtools'),
+      Client: clientPath, 
       Static: staticPath, 
-      'redux/store': path.join(clientPath, 'redux/store'),
-      'redux/middlewares': path.join(clientPath, 'redux/middlewares'),
-      'redux/utils': path.join(clientPath, 'redux/utils'),
-      'redux/services': path.join(clientPath, 'redux/services'),
-      'redux/modules': path.join(clientPath, 'redux/modules')
+      Components: path.join(clientPath, 'components'),
+      Modules: path.join(clientPath, 'modules'),
+      Helpers: path.join(clientPath, 'helpers'),
+      Services: path.join(clientPath, 'services'),
+      Routes: path.join(clientPath, 'routes'),
+      DevTools: path.join(clientPath, 'devtools')
     }
   },
   module: {

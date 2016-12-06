@@ -8,6 +8,7 @@ require('./style.scss');
 
 export default class Dashboard extends Component {
   render () {
+    console.log('12312312312');
     return (
       <div className='dashboard-container'>
         { /* newsFeed */ }

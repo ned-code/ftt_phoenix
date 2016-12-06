@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import { createRoutes } from 'Routes';
-
-import { configurateStore } from 'redux/store/configurateStore';
+import { configurateStore } from 'Client/store';
 
 const store = configurateStore(); 
 const routes = createRoutes(store);
 
+// event plugin 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 

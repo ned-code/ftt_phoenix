@@ -3,3 +3,4 @@ dist/
 docker/neo4j/*
 docker/postgresql/*
 .log
+.DS_Store

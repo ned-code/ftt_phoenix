@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import MemebersContainer from 'Containers/MembersContainer';
+
 import MembersTable from 'Components/MembersTable';
 import MembersFilters from 'Components/MembersFilters';
 
@@ -10,14 +12,16 @@ require('./style.scss');
 export default class Members extends Component {
   render () {
     return (
-      <div className='members-container'>
-        <div>
-          <MembersTable />
+      <MemebersContainer>
+        <div className='members-container'>
+          <div>
+            <MembersTable />
+          </div>
+          <div>
+            <MembersFilters />
+          </div>
         </div>
-        <div>
-          <MembersFilters />
-        </div>
-      </div>
+      </MemebersContainer>
     );
   }
 }

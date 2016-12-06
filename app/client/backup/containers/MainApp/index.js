@@ -17,6 +17,7 @@ import MainTabs from 'Containers/MainApp/components/MainTabs';
 /* actions */
 import * as actions from 'redux/modules/actions';
 
+/*
 @connect(
   (state) => {
     return {
@@ -27,8 +28,10 @@ import * as actions from 'redux/modules/actions';
     load: actions.users.load
   }
 )
+*/
 export default class MainApp extends Component {
 
+  /*
   constructor(props){
     super(props);
 
@@ -36,7 +39,10 @@ export default class MainApp extends Component {
 
     load();
   }
+  */
 
+  render = () => (null)
+  /*
   render () {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
@@ -57,5 +63,6 @@ export default class MainApp extends Component {
       </MuiThemeProvider>
     );
   }
+  */
 }
 
