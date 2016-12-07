@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Redirect, withRouter } from 'react-router';
+import { Redirect } from 'react-router';
 
 /* material-ui */
 import {
@@ -9,7 +9,7 @@ import {
 } from 'material-ui';
 
 export default class MaterialTabs extends Component {
-  loadUrl = (url) => this.props.onChangeTab(url); 
+  loadUrl = (url) => {}; 
 
   render () {
     const pathname = window.location.pathname;

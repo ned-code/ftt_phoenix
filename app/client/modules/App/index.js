@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 
 import { BrowserRouter as Router, Match, Miss } from 'react-router';
 
+import { connect } from 'react-redux';
+
 /* material-ui */
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -12,6 +14,14 @@ import Module from 'Helpers/react/Module';
 
 require('./style.scss');
 
+@connect(
+  (state) => {
+    console.log(state);
+    return {};
+  },
+  {
+  }
+)
 export default class App extends Module {
   moduleRender = () => {
     return (
