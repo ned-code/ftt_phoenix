@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 
 import clientMiddleware from 'Helpers/redux/clientMiddleware';
+
 import { reducers } from 'Client/reducers';
 
 import Server from 'Services/Server';

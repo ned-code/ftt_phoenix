@@ -1,8 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Match, Miss } from 'react-router';
 
-import createHistory from 'history/createBrowserHistory';
-
+/* MODULES */
 import App from 'Modules/App';
 
 import Landing from 'Modules/Landing';
@@ -17,24 +15,22 @@ import Family from 'Modules/Family';
 
 import NotFound from 'Modules/NotFound';
 
-const history = createHistory();
+import { ConnectedRouter } from 'Modules/ReactRouterRedux';
 
 export const createRoutes = (store) => {
-
   return (
-    <Router>
+    <ConnectedRouter>
       <App pattern='/'>
         <Landing pattern='/' exactly />  
         <Login pattern='/login' />  
-        <Layout pattern='/v1' history={history}>
+        <Layout pattern='/v1' >
           <Dashboard pattern='/v1/dashboard'  />
           <Calendar pattern='/v1/calendar' />
           <Members pattern='/v1/members' />
           <Family pattern='/v1/family' />
         </Layout>
-        
         <NotFound />
       </App>
-    </Router>
+    </ConnectedRouter>
   );
 }; 

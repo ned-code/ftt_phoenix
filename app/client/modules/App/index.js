@@ -15,12 +15,8 @@ import Module from 'Helpers/react/Module';
 require('./style.scss');
 
 @connect(
-  (state) => {
-    console.log(state);
-    return {};
-  },
-  {
-  }
+  (state) => ({}),
+  {}
 )
 export default class App extends Module {
   moduleRender = () => {

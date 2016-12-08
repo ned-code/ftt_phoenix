@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 
-//import App from 'Modules/App/reducer';
-
 import Dashboard from 'Modules/Dashboard/reducer';
 
+import { routerReducer } from 'Modules/ReactRouterRedux';
+
 export const reducers = combineReducers({
-  Dashboard
+  Dashboard,
+  routing: routerReducer
 });
 

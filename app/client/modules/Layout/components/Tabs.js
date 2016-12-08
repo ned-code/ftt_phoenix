@@ -9,7 +9,9 @@ import {
 } from 'material-ui';
 
 export default class MaterialTabs extends Component {
-  loadUrl = (url) => this.props.onChangeTab(url); 
+  loadUrl = (url) => {
+    this.props.transitionTo(url);
+  }
 
   render () {
     const pathname = window.location.pathname;
