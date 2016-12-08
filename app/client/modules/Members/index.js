@@ -10,7 +10,6 @@ import Filters from './components/Filters';
 require('./style.scss');
 
 export default class Members extends Module {
-
   moduleRender = () => {
     return (
       <Container>

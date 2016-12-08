@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import { Paper, RaisedButton, Toolbar, Subheader, ToolbarGroup, Avatar, IconButton, IconMenu, MenuItem } from 'material-ui';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
@@ -9,7 +9,13 @@ import Row from './Row';
 
 export default class T extends Component {
 
+  static contextTypes = {
+    users: PropTypes.array,
+  }
+
   render () {
+    const { users } = this.context;
+
     return (
       <Paper zDepth={1} >
         <Table style={{ width: '700px' }} >
@@ -29,17 +35,24 @@ export default class T extends Component {
             adjustForCheckbox={false}
             displayRowCheckbox={false}
           >
-            <Row 
-              relation={'is u'}
-              name={'Alexander'}
-              birth={new Date(1987, 9, 18)}
-              birthplace={'Minsk, Belarus'}
-              onEdit={()=>console.log('edit')}
-              onAddParent={()=>console.log('add parent')}
-              onAddSpouse={()=>console.log('add spouse')}
-              onAddChild={()=>console.log('add child')}
-              onDelete={()=>console.log('delete')}
-            />
+          {
+            users.map(
+              (user, key) => (
+                <Row 
+                  key={ key }
+                  relation={ '' }
+                  name={ user.name }
+                  birth={ new Date(1987, 9, 18) }
+                  birthplace={ '' }
+                  onEdit={ ()=>console.log('edit') }
+                  onAddParent={ ()=>console.log('add parent') }
+                  onAddSpouse={ ()=>console.log('add spouse') }
+                  onAddChild={ ()=>console.log('add child') }
+                  onDelete={ ()=>console.log('delete') }
+                />
+              )
+            )
+          }
           </TableBody>
         </Table>
       </Paper>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class Container extends Component {
   render () {
@@ -7,13 +7,17 @@ export default class Container extends Component {
         {
           React.Children.map(
             this.props.children,
-            (element, idx) => {
-              return React.cloneElement(element, { ref: idx });
-            }
+            (element, idx) => React.cloneElement(
+              element, 
+              {
+                ref: idx
+              }
+            )
           )
         }
       </div>
     );
   }
 }
+
 

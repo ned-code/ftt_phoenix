@@ -1,13 +1,32 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import { connect } from 'react-redux';
 
-import Cont from 'Helpers/react/Container';
+import * as actions from '../actions';
+import Container from 'Helpers/react/Container';
 
 @connect(
-  state => ({ 
-  }),
-  { }
+  state => ({
+    users: state.members.users 
+  }), 
+  actions 
 )
-export default class Container extends Cont {}
+export default class Main extends Container {
+  static childContextTypes = {
+    users: PropTypes.array
+  }
+
+  getChildContext () {
+    return {
+      users: this.props.users
+    }
+  }
+
+  componentWillMount () {
+    const { load } = this.props;
+
+    load();
+  }
+}
+
 
