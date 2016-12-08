@@ -5,7 +5,7 @@ import { TableRow, TableRowColumn } from 'material-ui/Table';
 
 import IconNavigationMoreVert from 'material-ui/svg-icons/navigation/more-vert'
 
-import DateTime from 'Presentational/DateTime';
+import DateTime from 'Components/DateTime';
 
 export default class Row extends Component {
   static propTypes = {

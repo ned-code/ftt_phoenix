@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Paper, RaisedButton, Toggle, Toolbar, Subheader, ToolbarGroup, Avatar, IconButton, IconMenu, MenuItem } from 'material-ui';
 
-export default class MembersFilters extends Component {
+export default class Filters extends Component {
   render () {
     return (
       <Paper zDepth={1} style={{ width: '300px' }}>

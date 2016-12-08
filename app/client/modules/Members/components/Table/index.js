@@ -5,9 +5,9 @@ import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColu
 
 import IconNavigationMoreVert from 'material-ui/svg-icons/navigation/more-vert'
 
-import Row from './components/Row';
+import Row from './Row';
 
-export default class MembersTable extends Component {
+export default class T extends Component {
 
   render () {
     return (

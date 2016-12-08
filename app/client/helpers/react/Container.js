@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 
-import { connect } from 'react-redux';
-
-@connect(
-  state => ({ 
-  }),
-  { }
-)
-export default class MembersContainer extends Component {
+export default class Container extends Component {
   render () {
     return (
       <div>
