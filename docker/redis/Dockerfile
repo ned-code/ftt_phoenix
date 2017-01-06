@@ -1,0 +1,3 @@
+FROM redis:3.2.6
+
+EXPOSE 6379

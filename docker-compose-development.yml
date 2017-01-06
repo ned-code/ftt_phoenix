@@ -1,0 +1,67 @@
+version: "2"
+services: 
+  ng:
+    build: ./docker/nginx
+    ports:
+      - "80:80"
+    links:
+      - client
+      - api
+    expose:
+      - "3000"
+  client:
+    build:
+      context: ./docker/client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/srv/app
+    working_dir:
+      /srv/app
+    environment:
+       NODE_ENV: development
+  api:
+    build:
+      context: ./docker/api
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./:/srv/app
+    working_dir:
+      /srv/app
+    environment:
+       NODE_ENV: development
+    links:
+      - neo4j 
+      - mysql
+      - redis
+  redis:
+    build:
+      context: ./docker/redis
+      dockerfile: Dockerfile
+    ports:
+      - "7001:6379"
+  mysql:
+    build:
+      context: ./docker/mysql
+      dockerfile: Dockerfile
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=familytreetop
+    volumes:
+      - ./docker/mysql/db:/var/lib/mysql
+  neo4j:
+    build:
+      context: ./docker/neo4j
+      dockerfile: Dockerfile
+    restart: always
+    image: neo4j
+    ports:
+      - "7474:7474"
+    volumes: 
+      - ./docker/neo4j/log:/var/log/neo4j
+      - ./docker/neo4j/graph.db:/var/lib/neo4j/data/graph.db
