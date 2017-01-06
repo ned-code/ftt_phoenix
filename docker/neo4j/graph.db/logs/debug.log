@@ -13875,3 +13875,13 @@ Storage files: (filename : modification date - size)
 2017-01-06 19:14:46.780+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 4953ms.
 2017-01-06 19:14:47.397+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 516ms.
 2017-01-06 19:14:51.576+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 349ms.
+2017-01-06 19:15:01.826+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 10000ms.
+2017-01-06 19:15:11.928+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 10000ms.
+2017-01-06 19:15:22.027+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 10000ms.
+2017-01-06 19:15:32.127+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 10000ms.
+2017-01-06 19:15:42.227+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 10000ms.
+2017-01-06 19:15:51.011+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 8683ms.
+2017-01-06 19:16:02.249+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 10000ms.
+2017-01-06 19:16:08.071+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 5721ms.
+2017-01-06 19:16:18.581+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 10000ms.
+2017-01-06 19:16:21.432+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 2750ms.
