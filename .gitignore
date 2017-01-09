@@ -1,6 +1,6 @@
 node_modules/
 dist/
 docker/neo4j/*
-docker/postgresql/*
+docker/mysql/*
 .log
 .DS_Store
