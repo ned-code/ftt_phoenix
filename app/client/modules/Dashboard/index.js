@@ -6,12 +6,12 @@ import NewsFeed from './components/NewsFeed';
 import Photos from './components/Photos';
 import Likes from './components/Likes';
 
-require('./style.scss');
+import styles from './styles.css';
 
 export default class Dashboard extends Module {
   moduleRender = () => {
     return (
-      <div className='dashboard-container'>
+      <div className={styles.container}>
         { /* newsFeed */ }
         <div>
           <NewsFeed />

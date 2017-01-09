@@ -7,12 +7,12 @@ import LatestBirths from './components/LatestBirths';
 import LatestMarriages from './components/LatestMarriages';
 import LatestDeaths from './components/LatestDeaths';
 
-require('./style.scss');
+import styles from './styles.css';
 
 export default class Calendar extends Module {
   moduleRender = () => {
     return (
-      <div className='calendar-container'>
+      <div className={styles.continaer}>
         { /* newsFeed */ }
         <div>
           <Events />

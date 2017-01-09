@@ -12,7 +12,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Module from 'Helpers/react/Module';
 
-require('./style.scss');
+require('./global.css');
 
 export default class App extends Module {
   moduleRender = () => {

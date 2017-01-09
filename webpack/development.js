@@ -47,8 +47,9 @@ export default {
         loader: 'json-loader'
       },
       {
-        test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loaders: ["style", "css?localIdentName=[folder]__[local]__[hash:base64:2]&modules&importLoaders=1&sourceMap"]
       },
       { 
         test: /\.(png|jpg|jpeg|gif|svg|woff)$/, 

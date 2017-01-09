@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
-import Container from 'Helpers/react/Container';
 
 @connect(
   state => ({
@@ -11,7 +10,7 @@ import Container from 'Helpers/react/Container';
   }), 
   actions 
 )
-export default class Main extends Container {
+export default class Main extends Component {
   static childContextTypes = {
     users: PropTypes.array
   }

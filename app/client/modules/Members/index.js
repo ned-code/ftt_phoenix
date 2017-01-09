@@ -7,13 +7,14 @@ import Container from './containers';
 import Table from './components/Table/index';
 import Filters from './components/Filters';
 
-require('./style.scss');
+import styles from './styles.css';
+
 
 export default class Members extends Module {
   moduleRender = () => {
     return (
       <Container>
-        <div className='members-container'>
+        <div className={styles.container}>
           <div>
             <Table />
           </div>

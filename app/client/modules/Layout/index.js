@@ -7,6 +7,10 @@ import MaterialTabs from './components/Tabs';
 
 export default class Layout extends Module {
 
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  }
+
   moduleRender = () => {
     return (
       <div>

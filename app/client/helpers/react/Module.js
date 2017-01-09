@@ -4,15 +4,11 @@ import { Match } from 'react-router';
 
 export default class Module extends Component {
 
-  static contextTypes = {
-    router: PropTypes.object.isRequired
-  }
-
   moduleRender () {
     return (null);
   }
 
-  render (props) {
+  render () {
     const { pattern, exactly } = this.props;
 
     return (

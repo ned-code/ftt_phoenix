@@ -11,7 +11,7 @@ function formatUrl (path) {
 export default class Server {
 
   constructor () {
-    this.io = client(`http://${document.domain}:4000`);
+    //this.io = client(`http://${document.domain}:4000`);
     this.api = {};
 
     methods.forEach(

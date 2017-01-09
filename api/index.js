@@ -3,21 +3,23 @@ import bodyParser from 'body-parser';
 
 import http from 'http';
 
-import { mapUrl } from './helpers/url.js';
-import * as actions from './actions/index.js';
-import * as models from './models/index.js';
+//import { mapUrl } from './helpers/url.js';
+//import * as actions from './actions/index.js';
+//import * as models from './models/index.js';
 
-import SocketIo from 'socket.io';
+//import SocketIo from 'socket.io';
 
 const app = express();
 const server = new http.createServer(app);
 
-const io = new SocketIo(server);
-io.path('/ws');
+//const io = new SocketIo(server);
+//io.path('/ws');
 
 app.use(bodyParser.json());
 
-app.use((req, res) => {
+app.use((req, res, next) => {
+  next();
+  /*
   const splittedUrlPath = req.url.split('?')[0].split('/').slice(1);
   const { action, params } = mapUrl(actions, splittedUrlPath);
   if (action) {
@@ -39,6 +41,7 @@ app.use((req, res) => {
   } else {
     res.status(404).end('NOT FOUND');
   }
+  */
 });
 
 
@@ -49,8 +52,10 @@ const runnable = server.listen(4000, function(err) {
   console.log('Listening at http://localhost:4000/');
 });
 
+/*
 io.on('connection', socket => {
   console.log('io connection');
 });
 
 io.listen(runnable);
+*/
