@@ -31,7 +31,7 @@ export default {
       Modules: path.join(clientPath, 'modules'),
       Helpers: path.join(clientPath, 'helpers'),
       Services: path.join(clientPath, 'services'),
-      Routes: path.join(clientPath, 'routes'),
+      Application: path.join(clientPath, 'application'),
       DevTools: path.join(clientPath, 'devtools')
     }
   },

@@ -17,7 +17,7 @@ import NotFound from 'Modules/NotFound';
 
 import { ConnectedRouter } from 'Modules/ReactRouterRedux';
 
-export const createRoutes = (store) => {
+export const createApplication = (store) => {
   return (
     <ConnectedRouter>
       <App pattern='/'>
